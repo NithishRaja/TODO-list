@@ -5,12 +5,15 @@ export default class Navbar extends Component{
   constructor(props){
     super(props);
 
-    this._componentLayoutJSX = <div>
-                                <button>completed</button>
-                                <button>all</button>
-                                <button>remaining</button>
-                              </div>;
-
+    this._componentLayoutJSX = <nav className="navbar navbar-default">
+                                <div className="container">
+                                  <ul className="nav navbar-nav">
+                                    <li className="active"><a>All</a></li>
+                                    <li><a>Completed</a></li>
+                                    <li><a>Pending</a></li>
+                                  </ul>
+                                </div>
+                              </nav>;
   }
 
   render(){
