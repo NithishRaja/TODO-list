@@ -7,21 +7,47 @@ export default class Navbar extends Component{
   constructor(props){
     super(props);
 
+    this._infoButtonJSX = <ul className="nav navbar-nav navbar-right">
+                                  <Link to="/info" className="btn btn-info">i</Link>
+                                </ul>;
+
     this._componentLayoutJSX = <nav className="navbar navbar-default">
                                 <div className="container">
-                                  <ul className="nav navbar-nav">
-                                    <li className="active"><Link to="/" id="all">All</Link></li>
-                                    <li><Link to="/" id="completed">Completed</Link></li>
-                                    <li><Link to="/" id="pending">Pending</Link></li>
-                                  </ul>
-                                  <ul className="nav navbar-nav navbar-right">
-                                    <Link to="/info" className="btn btn-info">i</Link>
-                                  </ul>
+                                  {this._filterButtonJSX}
+                                  {this._infoButtonJSX}
                                 </div>
                               </nav>;
   }
 
   render(){
+
+    if(this.props.todoFilter === "all"){
+      this._filterButtonJSX = <ul className="nav navbar-nav">
+                                      <li className="active"><Link to="/" id="all">All</Link></li>
+                                      <li><Link to="/" id="completed">Completed</Link></li>
+                                      <li><Link to="/" id="pending">Pending</Link></li>
+                                    </ul>;
+    }else if(this.props.todoFilter === "completed"){
+      this._filterButtonJSX = <ul className="nav navbar-nav">
+                                      <li><Link to="/" id="all">All</Link></li>
+                                      <li className="active"><Link to="/" id="completed">Completed</Link></li>
+                                      <li><Link to="/" id="pending">Pending</Link></li>
+                                    </ul>;
+    }else if(this.props.todoFilter === "pending"){
+      this._filterButtonJSX = <ul className="nav navbar-nav">
+                                      <li><Link to="/" id="all">All</Link></li>
+                                      <li><Link to="/" id="completed">Completed</Link></li>
+                                      <li className="active"><Link to="/" id="pending">Pending</Link></li>
+                                    </ul>;
+    }
+
+    this._componentLayoutJSX = <nav className="navbar navbar-default">
+                                <div className="container">
+                                  {this._filterButtonJSX}
+                                  {this._infoButtonJSX}
+                                </div>
+                              </nav>;  
+
     return(
       this._componentLayoutJSX
     );
@@ -35,7 +61,7 @@ export default class Navbar extends Component{
       .subscribe({
         next: (event) => {
           event.preventDefault();
-          console.log("all");
+          this.props.updateTodoFilter("all");
         }
       });
 
@@ -44,7 +70,7 @@ export default class Navbar extends Component{
       .subscribe({
         next: (event) => {
           event.preventDefault();
-          console.log("completed");
+          this.props.updateTodoFilter("completed");
         }
       });
 
@@ -53,7 +79,7 @@ export default class Navbar extends Component{
       .subscribe({
         next: (event) => {
           event.preventDefault();
-          console.log("pending");
+          this.props.updateTodoFilter("pending");
         }
       });
 

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Navbar from "./navbar";
+import Navbar from "./../containers/navbarContainer";
 import Todo from "./todo";
 
 export default class Main extends Component{
@@ -54,9 +54,22 @@ export default class Main extends Component{
                               </div>;
   }
 
-  render(){
+  // componentWillMount(){
+  //   this._componentLayoutJSX = <div className="container-fluid">
+  //                               <Navbar />
+  //                               <div className="container">
+  //                                 {this._todoList.filter(todo => {
+  //                                   if(this.props.todoFilter!=="all"){
+  //                                     return this.props.todoFilter === todo.status;
+  //                                   }else{
+  //                                     return true;
+  //                                   }
+  //                                 }).map((todo) => <Todo key={todo.id} todo={todo} />)}
+  //                               </div>
+  //                             </div>;
+  // }
 
-    console.log(this.props.todoFilter);
+  render(){
 
     return(
       this._componentLayoutJSX

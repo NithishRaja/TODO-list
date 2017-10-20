@@ -12,3 +12,5 @@ const mapStateToProps = (state) => {
 const matchDispatchToProps = (dispatch) => {
   return bindActionCreators({updateTodoFilter}, dispatch);
 }
+
+export default connect(mapStateToProps, matchDispatchToProps)(Navbar);
