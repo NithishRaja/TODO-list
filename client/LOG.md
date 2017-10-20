@@ -25,3 +25,9 @@
 * start refactoring **Todo** component at 1830
 * finished refactoring **Todo** component at 1841
 * **ended at 1842 on 20-10-2017**
+
+* **started at 1848 on 20-10-2017**
+* start writing component for color coding info at 1849
+* finished writing **Info** component at 1857
+* added link to `/info` inside **Navbar** component at 1903
+* added action listeners to **Navbar** component at 1913
