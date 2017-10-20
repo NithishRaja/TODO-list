@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import Main from "./../components";
+import Main from "./../containers/mainContainer";
 import Info from "./../components/info";
 import Notfound from "./../components/notfound";
 

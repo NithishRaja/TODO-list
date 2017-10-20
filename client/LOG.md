@@ -31,3 +31,9 @@
 * finished writing **Info** component at 1857
 * added link to `/info` inside **Navbar** component at 1903
 * added action listeners to **Navbar** component at 1913
+* **ended at 1914 on 20-10-2017**
+
+* **started at 0151 on 21-10-2017**
+* start writing container for **Main** component at 0152
+* finished container for **Main** component at 0156
+* start writing container for **Navbar** component at 0203

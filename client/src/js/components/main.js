@@ -55,7 +55,9 @@ export default class Main extends Component{
   }
 
   render(){
-    
+
+    console.log(this.props.todoFilter);
+
     return(
       this._componentLayoutJSX
     );
