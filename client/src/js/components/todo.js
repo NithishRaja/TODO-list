@@ -7,12 +7,13 @@ export default class Todo extends Component{
 
     this._componentLayoutJSX = <div className="panel panel-default">
                                 <div className="panel-heading">
-                                  title goes here <button className="btn btn-primary">expand/contract</button>
+                                {this.props.todo.title}<button className="btn btn-primary">expand/contract</button>
                                 </div>
                                 <div className="panel-body">
-                                  description goes here
+                                  {this.props.todo.tags.map((tag, index) => <div className="label label-warning" key={index}>{tag}</div>)}
+                                  <p>{this.props.todo.desc}</p>
                                 </div>
-                                <div classname="panel-footer">
+                                <div className="panel-footer">
                                   <button className="btn btn-success">{"edit"}</button>
                                   <button className="btn btn-danger">{"delete"}</button>
                                 </div>
