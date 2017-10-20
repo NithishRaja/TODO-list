@@ -22,4 +22,6 @@
 * start writing info.json at 1755
 * finished info.json at 1813
 * passed todo info to **Todo** component as props at 1826
-* 
+* start refactoring **Todo** component at 1830
+* finished refactoring **Todo** component at 1841
+* **ended at 1842 on 20-10-2017**
