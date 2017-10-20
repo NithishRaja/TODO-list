@@ -37,3 +37,7 @@
 * start writing container for **Main** component at 0152
 * finished container for **Main** component at 0156
 * start writing container for **Navbar** component at 0203
+* finished container for **Navbar** component at 0210
+* added functionality to highlight current filter at 0220
+* added functionality to filter TODO based on current filter at 0240
+* **ended at 0241 on 21-10-2017**

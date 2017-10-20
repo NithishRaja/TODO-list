@@ -54,22 +54,20 @@ export default class Main extends Component{
                               </div>;
   }
 
-  // componentWillMount(){
-  //   this._componentLayoutJSX = <div className="container-fluid">
-  //                               <Navbar />
-  //                               <div className="container">
-  //                                 {this._todoList.filter(todo => {
-  //                                   if(this.props.todoFilter!=="all"){
-  //                                     return this.props.todoFilter === todo.status;
-  //                                   }else{
-  //                                     return true;
-  //                                   }
-  //                                 }).map((todo) => <Todo key={todo.id} todo={todo} />)}
-  //                               </div>
-  //                             </div>;
-  // }
-
   render(){
+
+    this._componentLayoutJSX = <div className="container-fluid">
+                                <Navbar />
+                                <div className="container">
+                                  {this._todoList.filter(todo => {
+                                    if(this.props.todoFilter!=="all"){
+                                      return this.props.todoFilter === todo.status;
+                                    }else{
+                                      return true;
+                                    }
+                                  }).map((todo) => <Todo key={todo.id} todo={todo} />)}
+                                </div>
+                              </div>;
 
     return(
       this._componentLayoutJSX
