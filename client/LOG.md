@@ -44,4 +44,6 @@
 
 * **started at 1324 on 21-10-2017**
 * separated **Navbar** component from **Main** component at 1331
+* removed status from time object inside todo object at 1351
+* moved todo info into a reducer at 1358
 * 

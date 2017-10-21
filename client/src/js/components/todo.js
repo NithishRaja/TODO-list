@@ -38,7 +38,7 @@ export default class Todo extends Component{
                                 </div>;
 
       this._componentLayoutJSX = this._panelContainerJSX;
-    }else if(this.props.todo.status === "pending" && this.props.todo.time.status === "expired"){
+    }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)<0){
       this._panelContainerJSX = <div className="panel panel-warning">
                                   {this._panelHeadingJSX}
                                   {this._panelBodyJSX}

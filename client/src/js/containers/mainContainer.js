@@ -4,7 +4,8 @@ import Main from "./../components/main";
 
 const mapStateToProps = (state) => {
   return {
-    todoFilter: state.todoFilter
+    todoFilter: state.todoFilter,
+    todo: state.todo
   }
 };
 

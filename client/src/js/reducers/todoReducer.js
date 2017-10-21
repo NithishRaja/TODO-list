@@ -1,24 +1,26 @@
-{
-  "todo":[
+
+export default function(){
+
+  return [
     {
       "id": 1,
       "title":"todo1",
       "desc":"do this",
       "tags":["important", "do not forget"],
       "time":{
-        "start": "Fri Oct 20 2017 17:58:40 GMT+0530 (India Standard Time)",
-        "end": "Sat Oct 21 2017 17:58:40 GMT+0530 (India Standard Time)"
+        "start": "2017-10-20T08:14:33.911Z",
+        "end": "2017-10-21T08:14:33.911Z"
       },
       "status": "pending"
     },
     {
-      "id": 1,
+      "id": 2,
       "title":"todo2",
       "desc":"and do this",
       "tags":["not important", "do not forget"],
       "time":{
-        "start": "Fri Oct 13 2017 17:58:40 GMT+0530 (India Standard Time)",
-        "end": "Sat Oct 14 2017 17:58:40 GMT+0530 (India Standard Time)"
+        "start": "2017-10-13T08:14:33.911Z",
+        "end": "2017-10-14T08:14:33.911Z"
       },
       "status": "pending"
     },
@@ -28,8 +30,8 @@
       "desc":"finally do this",
       "tags":["important"],
       "time":{
-        "start": "Fri Oct 6 2017 17:58:40 GMT+0530 (India Standard Time)",
-        "end": "Sat Oct 7 2017 17:58:40 GMT+0530 (India Standard Time)"
+        "start": "2017-10-20T08:14:33.911Z",
+        "end": "2017-10-21T08:14:33.911Z"
       },
       "status": "completed"
     }
