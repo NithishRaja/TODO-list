@@ -55,3 +55,7 @@
 * placed missing return statement inside filter function at 1552
 * fixed bug
 * **ended at 1553 on 21-10-2017**
+
+* **started at 1849 on 21-10-2017**
+* start writing code to get TODO info via AJAX requests at 1850
+* 
