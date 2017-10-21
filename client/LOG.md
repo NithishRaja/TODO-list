@@ -41,3 +41,7 @@
 * added functionality to highlight current filter at 0220
 * added functionality to filter TODO based on current filter at 0240
 * **ended at 0241 on 21-10-2017**
+
+* **started at 1324 on 21-10-2017**
+* separated **Navbar** component from **Main** component at 1331
+* 

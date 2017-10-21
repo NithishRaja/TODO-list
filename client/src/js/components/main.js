@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import Navbar from "./../containers/navbarContainer";
 import Todo from "./todo";
 
 export default class Main extends Component{
@@ -47,7 +46,6 @@ export default class Main extends Component{
     ];
 
     this._componentLayoutJSX = <div className="container-fluid">
-                                <Navbar />
                                 <div className="container">
                                   {this._todoList.map((todo) => <Todo key={todo.id} todo={todo} />)}
                                 </div>
@@ -57,7 +55,6 @@ export default class Main extends Component{
   render(){
 
     this._componentLayoutJSX = <div className="container-fluid">
-                                <Navbar />
                                 <div className="container">
                                   {this._todoList.filter(todo => {
                                     if(this.props.todoFilter!=="all"){
