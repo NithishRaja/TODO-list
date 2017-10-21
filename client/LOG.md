@@ -65,3 +65,6 @@
 * alternate method is to place **Navbar** component inside **Main** component
 * placed **Navbar** inside **Main** component at 1924
 * added filter for expired TODO at 1942
+* finished boilerplate for **Add** component at 1946
+* added link to **Add** component at 1951
+* 

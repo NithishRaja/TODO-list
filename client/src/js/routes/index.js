@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import Main from "./../containers/mainContainer";
 import Info from "./../components/info";
-import Add from "./../components/addtodo";
+import Add from "./../components/add";
 import Notfound from "./../components/notfound";
 
 const _routesJSX = <Switch>

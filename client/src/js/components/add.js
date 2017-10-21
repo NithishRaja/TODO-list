@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import Rx from "rxjs/Rx";
 
 export default class Add extends Component{
 
@@ -15,8 +16,8 @@ export default class Add extends Component{
                         <label htmlFor="desc">description</label>
                         <input id="desc" className="form-control" placeholder="description" />
                       </div>
-                      <Link to="/" className="btn btn-success">add todo</Link>
-                      <Link to="/" className="btn btn-danger">cancel</Link>
+                      <Link to="/" id="submit" className="btn btn-success">add todo</Link>
+                      <Link to="/" id="cancel" className="btn btn-danger">cancel</Link>
                     </div>;
 
     this._componentLayoutJSX = this._formJSX;
@@ -27,6 +28,17 @@ export default class Add extends Component{
     return(
       this._componentLayoutJSX
     );
+
+  }
+
+  componentDidMount(){
+
+    Rx.Observable.fromEvent(document.querySelector("#submit"))
+      .subscribe({
+        next: (event) => {
+          console.log("send AJAX POST request");
+        }
+      });
 
   }
 

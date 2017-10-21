@@ -7,12 +7,17 @@ export default class Navbar extends Component{
   constructor(props){
     super(props);
 
+    this._addTodoButtonJSX = <ul className="nav navbar-nav">
+                              <li><Link to="/add">{"+ add TODO"}</Link></li>
+                            </ul>;
+
     this._infoButtonJSX = <ul className="nav navbar-nav navbar-right">
-                            <Link to="/info" className="btn btn-info">i</Link>
+                            <li><Link className="btn btn-info" to="/info">i</Link></li>
                           </ul>;
 
     this._componentLayoutJSX = <nav className="navbar navbar-default">
                                 <div className="container">
+                                  {this._addTodoButtonJSX}
                                   {this._infoButtonJSX}
                                 </div>
                               </nav>;
@@ -53,6 +58,7 @@ export default class Navbar extends Component{
     this._componentLayoutJSX = <nav className="navbar navbar-default">
                                 <div className="container">
                                   {this._filterButtonJSX}
+                                  {this._addTodoButtonJSX}
                                   {this._infoButtonJSX}
                                 </div>
                               </nav>;
