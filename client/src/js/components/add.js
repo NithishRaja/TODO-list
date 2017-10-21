@@ -7,14 +7,16 @@ export default class Add extends Component{
   constructor(props){
     super(props);
 
+    this._tagList = [];
+
     this._titleInputJSX = <div className="form-group">
                             <label htmlFor="title">title</label>
-                            <input id="title" className="form-control" placeholder="title" />
+                            <input type="text" id="title" className="form-control" placeholder="title" />
                           </div>;
 
     this._descInputJSX = <div className="form-group">
                           <label htmlFor="desc">description</label>
-                          <input id="desc" className="form-control" placeholder="description" />
+                          <input type="text" id="desc" className="form-control" placeholder="description" />
                         </div>;
 
     this._dateandtimeInputJSX = <div className="form-inline">
@@ -28,6 +30,15 @@ export default class Add extends Component{
                                   </div>
                                 </div>;
 
+    this._tagsInputJSX = <div className="form-group">
+                          <label htmlFor="tags">tags</label>
+                          <div className="form-inline">
+                            {this._tagList.map((tag, index) => <span className="label label-default" key={index}>{tag}</span>)}
+                            <input type="text" id="tags" className="form-control"/>
+                            <button id="add-tag-button" className="btn btn-success">add tag</button>
+                          </div>
+                        </div>;
+
     this._submitButtonJSX = <div className="form-group">
                               <Link to="/" id="submit" className="btn btn-success">add todo</Link>
                               <Link to="/" id="cancel" className="btn btn-danger">cancel</Link>
@@ -37,6 +48,7 @@ export default class Add extends Component{
                       {this._titleInputJSX}
                       {this._descInputJSX}
                       {this._dateandtimeInputJSX}
+                      {this._tagsInputJSX}
                       {this._submitButtonJSX}
                     </div>;
 
@@ -44,6 +56,25 @@ export default class Add extends Component{
   }
 
   render(){
+
+    this._tagsInputJSX = <div className="form-group">
+                          <label htmlFor="tags">tags</label>
+                          <div className="form-inline">
+                            {this._tagList.map((tag, index) => <span className="label label-default" key={index}>{tag}</span>)}
+                            <input type="text" id="tags" className="form-control"/>
+                            <button id="add-tag-button" className="btn btn-success">add tag</button>
+                          </div>
+                        </div>;
+
+    this._formJSX = <div className="container">
+                      {this._titleInputJSX}
+                      {this._descInputJSX}
+                      {this._dateandtimeInputJSX}
+                      {this._tagsInputJSX}
+                      {this._submitButtonJSX}
+                    </div>;
+
+    this._componentLayoutJSX = this._formJSX;
 
     return(
       this._componentLayoutJSX
@@ -66,6 +97,19 @@ export default class Add extends Component{
             time,
             status: "pending"
           };
+        }
+      });
+
+    Rx.Observable.fromEvent(document.querySelector("#add-tag-button"), "click")
+      .debounceTime(500)
+      .subscribe({
+        next: (event) => {
+          event.preventDefault();
+          if(document.querySelector("#tags").value!==""){
+            this._tagList.push(document.querySelector("#tags").value);
+            console.log(this._tagList);
+            document.querySelector("#tags").value = "";
+          }
         }
       });
 

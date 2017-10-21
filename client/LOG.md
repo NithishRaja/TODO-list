@@ -73,4 +73,5 @@
 * start adding end time input in **Add** component at 0224
 * finished adding time input fields to **Add** component at 0246
 * refactored **Add** component at 0255
-* 
+* added boilerplate for tag input fields in **Add** component at 0327
+* **ended at 0327 on 22-10-2017**
