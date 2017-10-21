@@ -67,4 +67,10 @@
 * added filter for expired TODO at 1942
 * finished boilerplate for **Add** component at 1946
 * added link to **Add** component at 1951
+* **ended at 1955 on 21-10-2017**
+
+* **started at 0222 on 22-10-2017**
+* start adding end time input in **Add** component at 0224
+* finished adding time input fields to **Add** component at 0246
+* refactored **Add** component at 0255
 * 
