@@ -46,4 +46,12 @@
 * separated **Navbar** component from **Main** component at 1331
 * removed status from time object inside todo object at 1351
 * moved todo info into a reducer at 1358
-* 
+* **ended at 1401 on 21-10-2017**
+
+* **started at 1532 on 21-10-2017**
+* start using epic for async TODO retrieval at 1535
+* used `redux-observable` to fetch TODO in async method at 1549
+* logical error: filtering TODO functionality doesn't work at 1549
+* placed missing return statement inside filter function at 1552
+* fixed bug
+* **ended at 1553 on 21-10-2017**

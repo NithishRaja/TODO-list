@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import Main from "./../components/main";
+import startTodoUpdate from "./../actions/startTodoUpdate";
 
 const mapStateToProps = (state) => {
   return {
@@ -10,7 +11,7 @@ const mapStateToProps = (state) => {
 };
 
 const matchDispatchToProps = (dispatch) => {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({startTodoUpdate}, dispatch);
 };
 
 export default connect(mapStateToProps, matchDispatchToProps)(Main);
