@@ -23,12 +23,30 @@ export default class Main extends Component{
 
   render(){
 
-    if(this.props.todoFilter!=="all" && this.props.todo!==null){
+    if(this.props.todoFilter==="pending" && this.props.todo!==null){
       this._componentLayoutJSX = <div>
                                   <Navbar />
                                   <div className="container">
                                     {this.props.todo.filter(todo => {
-                                      return this.props.todoFilter === todo.status;
+                                      return new Date() - new Date(todo.time.end) < 0;
+                                    }).map((todo) => <Todo key={todo.id} todo={todo} />)}
+                                  </div>
+                                </div>;
+    }else if(this.props.todoFilter==="completed" && this.props.todo!==null){
+      this._componentLayoutJSX = <div>
+                                  <Navbar />
+                                  <div className="container">
+                                    {this.props.todo.filter(todo => {
+                                      return todo.status === "completed";
+                                    }).map((todo) => <Todo key={todo.id} todo={todo} />)}
+                                  </div>
+                                </div>;
+    }else if(this.props.todoFilter==="expired" && this.props.todo!=null){
+      this._componentLayoutJSX = <div>
+                                  <Navbar />
+                                  <div className="container">
+                                    {this.props.todo.filter(todo => {
+                                      return new Date() - new Date(todo.time.end) > 0 && todo.status==="pending";
                                     }).map((todo) => <Todo key={todo.id} todo={todo} />)}
                                   </div>
                                 </div>;

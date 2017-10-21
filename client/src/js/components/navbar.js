@@ -8,12 +8,11 @@ export default class Navbar extends Component{
     super(props);
 
     this._infoButtonJSX = <ul className="nav navbar-nav navbar-right">
-                                  <Link to="/info" className="btn btn-info">i</Link>
-                                </ul>;
+                            <Link to="/info" className="btn btn-info">i</Link>
+                          </ul>;
 
     this._componentLayoutJSX = <nav className="navbar navbar-default">
                                 <div className="container">
-                                  {this._filterButtonJSX}
                                   {this._infoButtonJSX}
                                 </div>
                               </nav>;
@@ -26,18 +25,28 @@ export default class Navbar extends Component{
                                       <li className="active"><Link to="/" id="all">All</Link></li>
                                       <li><Link to="/" id="completed">Completed</Link></li>
                                       <li><Link to="/" id="pending">Pending</Link></li>
+                                      <li><Link to="/" id="expired">Expired</Link></li>
                                     </ul>;
     }else if(this.props.todoFilter === "completed"){
       this._filterButtonJSX = <ul className="nav navbar-nav">
                                       <li><Link to="/" id="all">All</Link></li>
                                       <li className="active"><Link to="/" id="completed">Completed</Link></li>
                                       <li><Link to="/" id="pending">Pending</Link></li>
+                                      <li><Link to="/" id="expired">Expired</Link></li>
                                     </ul>;
     }else if(this.props.todoFilter === "pending"){
       this._filterButtonJSX = <ul className="nav navbar-nav">
                                       <li><Link to="/" id="all">All</Link></li>
                                       <li><Link to="/" id="completed">Completed</Link></li>
                                       <li className="active"><Link to="/" id="pending">Pending</Link></li>
+                                      <li><Link to="/" id="expired">Expired</Link></li>
+                                    </ul>;
+    }else if(this.props.todoFilter === "expired"){
+      this._filterButtonJSX = <ul className="nav navbar-nav">
+                                      <li><Link to="/" id="all">All</Link></li>
+                                      <li><Link to="/" id="completed">Completed</Link></li>
+                                      <li><Link to="/" id="pending">Pending</Link></li>
+                                      <li className="active"><Link to="/" id="expired">Expired</Link></li>
                                     </ul>;
     }
 
@@ -46,7 +55,7 @@ export default class Navbar extends Component{
                                   {this._filterButtonJSX}
                                   {this._infoButtonJSX}
                                 </div>
-                              </nav>;  
+                              </nav>;
 
     return(
       this._componentLayoutJSX
@@ -80,6 +89,15 @@ export default class Navbar extends Component{
         next: (event) => {
           event.preventDefault();
           this.props.updateTodoFilter("pending");
+        }
+      });
+
+    Rx.Observable.fromEvent(document.querySelector("#expired"), "click")
+      .debounceTime(500)
+      .subscribe({
+        next: (event) => {
+          event.preventDefault();
+          this.props.updateTodoFilter("expired");
         }
       });
 

@@ -64,4 +64,4 @@
 * set up separate state to maintain current page and previous page info
 * alternate method is to place **Navbar** component inside **Main** component
 * placed **Navbar** inside **Main** component at 1924
-* 
+* added filter for expired TODO at 1942

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
 
 export default class Add extends Component{
 
@@ -14,7 +15,8 @@ export default class Add extends Component{
                         <label htmlFor="desc">description</label>
                         <input id="desc" className="form-control" placeholder="description" />
                       </div>
-
+                      <Link to="/" className="btn btn-success">add todo</Link>
+                      <Link to="/" className="btn btn-danger">cancel</Link>
                     </div>;
 
     this._componentLayoutJSX = this._formJSX;
