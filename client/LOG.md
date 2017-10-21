@@ -58,4 +58,10 @@
 
 * **started at 1849 on 21-10-2017**
 * start writing code to get TODO info via AJAX requests at 1850
+* finished code for AJAX request at 1900
+* start writing component for new TODO at 1900
+* logic error: navigation via **Navbar** doesn't work due to **Navbar** being a separate component
+* set up separate state to maintain current page and previous page info
+* alternate method is to place **Navbar** component inside **Main** component
+* placed **Navbar** inside **Main** component at 1924
 * 
