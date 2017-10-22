@@ -30,15 +30,6 @@ export default class Add extends Component{
                                   </div>
                                 </div>;
 
-    this._tagsInputJSX = <div className="form-group">
-                          <label htmlFor="tags">tags</label>
-                          <div className="form-inline">
-                            {this._tagList.map((tag, index) => <span className="label label-default" key={index}>{tag}</span>)}
-                            <input type="text" id="tags" className="form-control"/>
-                            <button id="add-tag-button" className="btn btn-success">add tag</button>
-                          </div>
-                        </div>;
-
     this._submitButtonJSX = <div className="form-group">
                               <Link to="/" id="submit" className="btn btn-success">add todo</Link>
                               <Link to="/" id="cancel" className="btn btn-danger">cancel</Link>
@@ -48,7 +39,6 @@ export default class Add extends Component{
                       {this._titleInputJSX}
                       {this._descInputJSX}
                       {this._dateandtimeInputJSX}
-                      {this._tagsInputJSX}
                       {this._submitButtonJSX}
                     </div>;
 
@@ -56,6 +46,8 @@ export default class Add extends Component{
   }
 
   render(){
+
+    this._tagList.push(this.props.tagList);
 
     this._tagsInputJSX = <div className="form-group">
                           <label htmlFor="tags">tags</label>
@@ -95,23 +87,24 @@ export default class Add extends Component{
             title: document.querySelector("#title").value,
             desc: document.querySelector("#desc").value,
             time,
-            status: "pending"
+            status: "pending",
+            tags: this._tagList
           };
+          console.log(todo);
         }
       });
 
-    Rx.Observable.fromEvent(document.querySelector("#add-tag-button"), "click")
-      .debounceTime(500)
-      .subscribe({
-        next: (event) => {
-          event.preventDefault();
-          if(document.querySelector("#tags").value!==""){
-            this._tagList.push(document.querySelector("#tags").value);
-            console.log(this._tagList);
-            document.querySelector("#tags").value = "";
+      Rx.Observable.fromEvent(document.querySelector("#add-tag-button"), "click")
+        .debounceTime(500)
+        .subscribe({
+          next: (event) => {
+            event.preventDefault();
+            if(document.querySelector("#tags").value!==""){
+              this.props.updateTagList(document.querySelector("#tags").value);
+              document.querySelector("#tags").value = "";
+            }
           }
-        }
-      });
+        });
 
   }
 

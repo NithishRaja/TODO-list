@@ -1,5 +1,6 @@
 # TODO
 
+* write functionality for removing tags
 * use redux-observables for AJAX requests
 * write component for add and edit TODO
 * make navbar a side nav

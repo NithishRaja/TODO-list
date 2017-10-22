@@ -75,3 +75,28 @@
 * refactored **Add** component at 0255
 * added boilerplate for tag input fields in **Add** component at 0327
 * **ended at 0327 on 22-10-2017**
+
+* **started at 1524 on 22-10-2017**
+* wrote reducer to manage tagList at 1530
+* logic error: **Add** component does not re-render when props is updated at 1534
+* **ended at 1605 on 22-10-2017**
+
+* **started at 1920 on 22-10-2017**
+* start removing redux from **Add** component to isolate bug at 1920
+* removed all redux code from **Add** component at 1924
+* component renders as expected
+* added basic redux code at 1935
+* bug still persists
+* inserted missing aaction call. removed bug at 1943
+* error: event listeners inside **Add** component works only once at 1944
+* **ended at 1946 on 20-10-2017**
+
+* **started at 2031 on 22-10-2017**
+* removed `tagInputJSX` from constructor and placed it inside render function at 2032
+* bug fixed at 2033
+* **ended at 2035 on 22-10-2017**
+
+* **started at 2122 on 22-10-2017**
+* logic error: **Add** component does not re-render when props is updated at 2122
+* bug fixed by using both reducer and local variable together at 2127
+* 
