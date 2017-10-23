@@ -99,4 +99,9 @@
 * **started at 2122 on 22-10-2017**
 * logic error: **Add** component does not re-render when props is updated at 2122
 * bug fixed by using both reducer and local variable together at 2127
-* 
+* logic error: empty array is found inside \_tagList array at 2130
+* **ended at 2133 on 22-10-2017**
+
+* **started at 1610 on 23-10-2017**
+* bug removed. initialize \_tagList directly instead of using push for the first attempt at 1627
+* **ended at 1630 on 23-10-2017**

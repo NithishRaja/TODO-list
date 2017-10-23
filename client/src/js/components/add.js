@@ -7,7 +7,7 @@ export default class Add extends Component{
   constructor(props){
     super(props);
 
-    this._tagList = [];
+    this._tagList = null;
 
     this._titleInputJSX = <div className="form-group">
                             <label htmlFor="title">title</label>
@@ -47,7 +47,11 @@ export default class Add extends Component{
 
   render(){
 
-    this._tagList.push(this.props.tagList);
+    if(this._tagList===null){
+      this._tagList = this.props.tagList;
+    }else{
+      this._tagList.push(this.props.tagList);
+    }
 
     this._tagsInputJSX = <div className="form-group">
                           <label htmlFor="tags">tags</label>
