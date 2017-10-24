@@ -105,6 +105,16 @@ export default class Add extends Component{
             tags: this._tagList
           };
           this.props.addNewTodo(todo);
+          this.props.refreshTagListModifier();
+          this.props.updateTodoFilter("all");
+        }
+      });
+
+    Rx.Observable.fromEvent(document.querySelector("#cancel"), "click")
+      .subscribe({
+        next: (event) => {
+          this.props.refreshTagListModifier();
+          this.props.updateTodoFilter("all");
         }
       });
 
@@ -114,7 +124,7 @@ export default class Add extends Component{
         next: (event) => {
           event.preventDefault();
           if(document.querySelector("#tags").value!==""){
-            this.props.updateTagList({type:"PUSH", payload:document.querySelector("#tags").value});
+            this.props.updateTagListModifier({type:"PUSH", payload:document.querySelector("#tags").value});
             document.querySelector("#tags").value = "";
           }
         }
@@ -129,7 +139,7 @@ export default class Add extends Component{
         .subscribe({
           next: (event) => {
             event.preventDefault();
-            this.props.updateTagList({type:"POP", payload:tag});
+            this.props.updateTagListModifier({type:"POP", payload:tag});
           }
         });
     });

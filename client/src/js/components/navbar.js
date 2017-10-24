@@ -98,6 +98,7 @@ export default class Navbar extends Component{
       .subscribe({
         next: (event) => {
           this.props.updateTodoFilter("all");
+          this.props.refreshTagListModifier();
         }
       });
 
@@ -106,6 +107,7 @@ export default class Navbar extends Component{
       .subscribe({
         next: (event) => {
           this.props.updateTodoFilter("completed");
+          this.props.refreshTagListModifier();
         }
       });
 
@@ -114,6 +116,7 @@ export default class Navbar extends Component{
       .subscribe({
         next: (event) => {
           this.props.updateTodoFilter("pending");
+          this.props.refreshTagListModifier();
         }
       });
 
@@ -122,6 +125,7 @@ export default class Navbar extends Component{
       .subscribe({
         next: (event) => {
           this.props.updateTodoFilter("expired");
+          this.props.refreshTagListModifier();
         }
       });
 

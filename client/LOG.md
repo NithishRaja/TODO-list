@@ -123,4 +123,13 @@
 * instead of using splice, decided to use filter function to remove tag
 * bug removed at 0838
 * refactored **Navbar** component to work inside **Add** component at 0856
+* **ended at 0857 on 24-10-2017**
+
+* **started at 1840 on 24-10-2017**
+* logic error: after leaving `/add` page and going back to it again throws
+  `Uncaught TypeError: Cannot read property 'filter' of null` or
+  `Uncaught TypeError: this._tagList.map is not a function`
+* bug partially removed. no error when using **cancel** button at 1918
+* error is thrown when using buttons in **Navbar**
+* bug removed completely at 1928
 * 

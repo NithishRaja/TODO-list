@@ -4,11 +4,14 @@ export default function(action$){
 
   return action$.ofType("ADD_NEW_TODO")
     .debounceTime(500)
-    .map(action => {
-      console.log(action);
-      // AJAX call comes here
-      // return {type:"UPDATE_TODO", payload:response} with response from AJAX call
+    .mergeMap(action => {
+      // replace GET with POST request
+      return Rx.Observable.ajax({url:"/api/todo.json", method:"GET", responseType:"json"});
+    })
+    .pluck("response")
+    .map(response => {
+      console.log(response);
       // clear tagListModifierReducer
-      return {type:"", payload:""};
+      return {type:"UPDATE_TODO", payload: response};
     });
 }
