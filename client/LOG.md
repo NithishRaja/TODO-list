@@ -132,4 +132,16 @@
 * bug partially removed. no error when using **cancel** button at 1918
 * error is thrown when using buttons in **Navbar**
 * bug removed completely at 1928
+* started to modify **Todo** component to allow editing at 1930
+* created reducer for selectedTodo at 1945
+* created action for updating selectedTodo at 1948
+* error thrown: `Uncaught RangeError: Maximum call stack size exceeded` at 1950
+* **ended at 1957 on 24-10-2017**
+
+* **started at 2136 on 24-10-2017**
+* removing all redux components for selectedTodo at 2136
+* finished removing components at 2139
+* app works as expected
+* decided to remove editing option from app at 2152
+* added functionality for deleting TODO at 2202
 * 

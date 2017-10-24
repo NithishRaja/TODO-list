@@ -1,10 +1,12 @@
 import { combineEpics, createEpicMiddleware } from "redux-observable";
 import updateTodoEpic from "./updateTodoEpic";
+import deleteSelectedTodoEpic from "./deleteSelectedTodoEpic";
 
 import newTodoEpic from "./newTodoEpic";
 const allEpics = combineEpics(
   updateTodoEpic,
-  newTodoEpic
+  newTodoEpic,
+  deleteSelectedTodoEpic
 );
 
 const epicMiddleware = createEpicMiddleware(

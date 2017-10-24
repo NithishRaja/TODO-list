@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Rx from "rxjs/Rx";
 
 export default class Todo extends Component{
 
@@ -15,8 +16,7 @@ export default class Todo extends Component{
                         </div>;
 
     this._panelFooterJSX = <div className="panel-footer">
-                            <button className="btn btn-success">{"edit"}</button>
-                            <button className="btn btn-danger">{"delete"}</button>
+                            <button id={`delete-${this.props.todo.id}`} className="btn btn-danger">{"delete"}</button>
                           </div>;
 
     this._panelContainerJSX = <div className="panel panel-info">
@@ -55,6 +55,18 @@ export default class Todo extends Component{
     return(
       this._componentLayoutJSX
     );
+
+  }
+
+  componentDidMount(){
+
+    Rx.Observable.fromEvent(document.querySelector(`#delete-${this.props.todo.id}`), "click")
+      .debounceTime(500)
+      .subscribe({
+        next: (event) => {
+          this.props.deleteSelectedTodo(this.props.todo.id);
+        }
+      });
 
   }
 
