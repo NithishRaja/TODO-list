@@ -91,6 +91,7 @@ export default class Add extends Component{
   componentDidMount(){
 
     Rx.Observable.fromEvent(document.querySelector("#submit"), "click")
+      .debounceTime(500)
       .subscribe({
         next: (event) => {
           var time = {
@@ -111,6 +112,7 @@ export default class Add extends Component{
       });
 
     Rx.Observable.fromEvent(document.querySelector("#cancel"), "click")
+      .debounceTime(500)
       .subscribe({
         next: (event) => {
           this.props.refreshTagListModifier();
@@ -136,6 +138,7 @@ export default class Add extends Component{
 
     this._tagList.forEach((tag, index) => {
       Rx.Observable.fromEvent(document.querySelector(`#cancel-${tag}-${index}`), "click")
+        .debounceTime(500)
         .subscribe({
           next: (event) => {
             event.preventDefault();
