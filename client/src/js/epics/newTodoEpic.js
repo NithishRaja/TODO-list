@@ -8,6 +8,7 @@ export default function(action$){
       console.log(action);
       // AJAX call comes here
       // return {type:"UPDATE_TODO", payload:response} with response from AJAX call
+      // clear tagListModifierReducer
       return {type:"", payload:""};
     });
 }

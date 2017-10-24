@@ -122,4 +122,5 @@
 * **started at 0830 on 24-10-2017**
 * instead of using splice, decided to use filter function to remove tag
 * bug removed at 0838
+* refactored **Navbar** component to work inside **Add** component at 0856
 * 

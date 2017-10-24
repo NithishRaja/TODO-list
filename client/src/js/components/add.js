@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import Rx from "rxjs/Rx";
+import Navbar from "./../containers/navbarContainer";
 
 export default class Add extends Component{
 
@@ -42,7 +43,10 @@ export default class Add extends Component{
                       {this._submitButtonJSX}
                     </div>;
 
-    this._componentLayoutJSX = this._formJSX;
+    this._componentLayoutJSX = <div>
+                                <Navbar />
+                                {this._formJSX}
+                              </div>;
   }
 
   render(){
@@ -73,7 +77,10 @@ export default class Add extends Component{
                       {this._submitButtonJSX}
                     </div>;
 
-    this._componentLayoutJSX = this._formJSX;
+    this._componentLayoutJSX = <div>
+                                <Navbar />
+                                {this._formJSX}
+                              </div>;
 
     return(
       this._componentLayoutJSX
