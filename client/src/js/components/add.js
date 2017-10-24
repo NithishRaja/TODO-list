@@ -10,6 +10,10 @@ export default class Add extends Component{
 
     this._tagList = null;
 
+    this._endTimeErrorAlertJSX = <div className="alert alert-danger" role="alert">{"end time and date should be after current time and date"}</div>;
+
+    this._emptyFieldsAlertJSX = <div className="alert alert-warning" role="alert">{"please fill all fields before submitting"}</div>;
+
     this._titleInputJSX = <div className="form-group">
                             <label htmlFor="title">title</label>
                             <input type="text" id="title" className="form-control" placeholder="title" />
@@ -31,7 +35,7 @@ export default class Add extends Component{
                                   </div>
                                 </div>;
 
-    this._submitButtonJSX = <div className="form-group">
+    this._submitButtonJSX = <div className="container">
                               <Link to="/" id="submit" className="btn btn-success">add todo</Link>
                               <Link to="/" id="cancel" className="btn btn-danger">cancel</Link>
                             </div>;
@@ -40,12 +44,12 @@ export default class Add extends Component{
                       {this._titleInputJSX}
                       {this._descInputJSX}
                       {this._dateandtimeInputJSX}
-                      {this._submitButtonJSX}
                     </div>;
 
     this._componentLayoutJSX = <div>
                                 <Navbar />
                                 {this._formJSX}
+                                {this._submitButtonJSX}
                               </div>;
   }
 
@@ -74,12 +78,16 @@ export default class Add extends Component{
                       {this._descInputJSX}
                       {this._dateandtimeInputJSX}
                       {this._tagsInputJSX}
-                      {this._submitButtonJSX}
                     </div>;
 
     this._componentLayoutJSX = <div>
                                 <Navbar />
                                 {this._formJSX}
+                                <div className="container">
+                                {this._endTimeErrorAlertJSX}
+                                {this._emptyFieldsAlertJSX}
+                                </div>
+                                {this._submitButtonJSX}
                               </div>;
 
     return(

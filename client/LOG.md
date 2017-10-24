@@ -144,4 +144,6 @@
 * app works as expected
 * decided to remove editing option from app at 2152
 * added functionality for deleting TODO at 2202
-* 
+* starting to add validations to **Add** component at 2208
+* finished adding boilerplate for alerts in **Add** component at 2218
+* **ended at 2218 on 24-10-2017**
