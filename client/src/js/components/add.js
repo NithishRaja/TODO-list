@@ -47,16 +47,19 @@ export default class Add extends Component{
 
   render(){
 
-    if(this._tagList===null){
-      this._tagList = this.props.tagList;
-    }else{
-      this._tagList.push(this.props.tagList);
+    if(this._tagList===null && this.props.tagListModifier.type==="PUSH"){
+      this._tagList = this.props.tagListModifier.payload;
+    }else if(this.props.tagListModifier.type==="PUSH"){
+      this._tagList.push(this.props.tagListModifier.payload);
+    }else if(this.props.tagListModifier.type==="POP"){
+      this._tagList = this._tagList.filter(tag => this.props.tagListModifier.payload!==tag);
     }
 
     this._tagsInputJSX = <div className="form-group">
                           <label htmlFor="tags">tags</label>
                           <div className="form-inline">
-                            {this._tagList.map((tag, index) => <span className="label label-default" key={index}>{tag}</span>)}
+                            {this._tagList.map((tag, index) => <div className="label label-warning" key={index}>
+                              {tag}<button className="btn btn-danger" id={`cancel-${tag}-${index}`}>x</button></div>)}
                             <input type="text" id="tags" className="form-control"/>
                             <button id="add-tag-button" className="btn btn-success">add tag</button>
                           </div>
@@ -94,21 +97,35 @@ export default class Add extends Component{
             status: "pending",
             tags: this._tagList
           };
-          console.log(todo);
+          this.props.addNewTodo(todo);
         }
       });
 
-      Rx.Observable.fromEvent(document.querySelector("#add-tag-button"), "click")
-        .debounceTime(500)
+    Rx.Observable.fromEvent(document.querySelector("#add-tag-button"), "click")
+      .debounceTime(500)
+      .subscribe({
+        next: (event) => {
+          event.preventDefault();
+          if(document.querySelector("#tags").value!==""){
+            this.props.updateTagList({type:"PUSH", payload:document.querySelector("#tags").value});
+            document.querySelector("#tags").value = "";
+          }
+        }
+      });
+
+  }
+
+  componentDidUpdate(){
+
+    this._tagList.forEach((tag, index) => {
+      Rx.Observable.fromEvent(document.querySelector(`#cancel-${tag}-${index}`), "click")
         .subscribe({
           next: (event) => {
             event.preventDefault();
-            if(document.querySelector("#tags").value!==""){
-              this.props.updateTagList(document.querySelector("#tags").value);
-              document.querySelector("#tags").value = "";
-            }
+            this.props.updateTagList({type:"POP", payload:tag});
           }
         });
+    });
 
   }
 

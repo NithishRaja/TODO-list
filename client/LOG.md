@@ -105,3 +105,21 @@
 * **started at 1610 on 23-10-2017**
 * bug removed. initialize \_tagList directly instead of using push for the first attempt at 1627
 * **ended at 1630 on 23-10-2017**
+
+* **started at 1754 on 23-10-2017**
+* start to add epic for sending AJAX POST request for sending new TODO at 1755
+* finished epic with fake async function at 1809
+* start to write code for removing tags at 1810
+* added event listeners for tags at 1826
+* **ended at 1827 on 23-10-2017**
+
+* **started at 1901 on 23-10-2017**
+* start to refactor tagListReducer to allow removing tags at 1902
+* added functionality to remove tag at 1915
+* logic error: removing one tag removes all following tags
+* **ended at 1924 on 23-10-2017**
+
+* **started at 0830 on 24-10-2017**
+* instead of using splice, decided to use filter function to remove tag
+* bug removed at 0838
+* 

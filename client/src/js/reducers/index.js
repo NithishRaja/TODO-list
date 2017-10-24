@@ -1,11 +1,11 @@
 import {combineReducers} from "redux";
 import todoFilter from "./todoFilterReducer";
 import todo from "./todoReducer";
-import tagList from "./tagListReducer";
+import tagListModifier from "./tagListModifierReducer";
 
 const allReducers = combineReducers({
   todoFilter,
-  tagList,
+  tagListModifier,
   todo
 });
 
