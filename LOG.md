@@ -147,3 +147,24 @@
 * starting to add validations to **Add** component at 2208
 * finished adding boilerplate for alerts in **Add** component at 2218
 * **ended at 2218 on 24-10-2017**
+
+* **started at 1803 on 25-10-2017**
+* start writing reducer for form validation at 1806
+* finished reducer at 1810
+* wrote validations to check for valid form inputs at 1830
+* wrote action to update validFormReducer at 1833
+* error thrown: `Subscriber.js:242 Uncaught RangeError: Maximum call stack size exceeded`
+* error is thrown only when action call is inside rxjs event listener in componentDidMount
+* **ended at 1914 on 25-10-2017**
+
+* **started at 2109 on 25-10-2017**
+* refactored if else sattement in **Add** component at 2125
+* starting to write epic to clear tagListModifierReducer at 2126
+* removed `Subscriber.js:242 Uncaught RangeError: Maximum call stack size exceeded` error at 2133
+* error was removed by clearing tagListModifier after every PUSH and POP
+* whenever any other prop was updated the tagList was updated and hence re-rendered
+* this led to an infinite loop causing the error to be thrown
+* wrote functionality to render appropriate alert at 2144
+* start writing epic to clear formValidationReducer after 3 sec at 2144
+* finished epic at 2149
+* **ended at 2150 on 25-10-2017**

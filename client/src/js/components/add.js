@@ -14,6 +14,8 @@ export default class Add extends Component{
 
     this._emptyFieldsAlertJSX = <div className="alert alert-warning" role="alert">{"please fill all fields before submitting"}</div>;
 
+    this._noTagAlertJSX = <div className="alert alert-warning" role="alert">{"please include atleast one tag before submittong"}</div>;
+
     this._titleInputJSX = <div className="form-group">
                             <label htmlFor="title">title</label>
                             <input type="text" id="title" className="form-control" placeholder="title" />
@@ -55,7 +57,7 @@ export default class Add extends Component{
 
   render(){
 
-    if(this._tagList===null && this.props.tagListModifier.type==="PUSH"){
+    if(this._tagList===null && this.props.tagListModifier.type==="NONE"){
       this._tagList = this.props.tagListModifier.payload;
     }else if(this.props.tagListModifier.type==="PUSH"){
       this._tagList.push(this.props.tagListModifier.payload);
@@ -80,15 +82,40 @@ export default class Add extends Component{
                       {this._tagsInputJSX}
                     </div>;
 
-    this._componentLayoutJSX = <div>
-                                <Navbar />
-                                {this._formJSX}
-                                <div className="container">
-                                {this._endTimeErrorAlertJSX}
-                                {this._emptyFieldsAlertJSX}
-                                </div>
-                                {this._submitButtonJSX}
-                              </div>;
+    if(this.props.formValidation === "EMPTY_FIELDS"){
+      this._componentLayoutJSX = <div>
+                                  <Navbar />
+                                  {this._formJSX}
+                                  <div className="container">
+                                  {this._emptyFieldsAlertJSX}
+                                  </div>
+                                  {this._submitButtonJSX}
+                                </div>;
+    }else if(this.props.formValidation === "INVALID_DATE"){
+      this._componentLayoutJSX = <div>
+                                  <Navbar />
+                                  {this._formJSX}
+                                  <div className="container">
+                                  {this._endTimeErrorAlertJSX}
+                                  </div>
+                                  {this._submitButtonJSX}
+                                </div>;
+    }else if(this.props.formValidation === "NO_TAGS"){
+      this._componentLayoutJSX = <div>
+                                  <Navbar />
+                                  {this._formJSX}
+                                  <div className="container">
+                                  {this._noTagAlertJSX}
+                                  </div>
+                                  {this._submitButtonJSX}
+                                </div>;
+    }else{
+      this._componentLayoutJSX = <div>
+                                  <Navbar />
+                                  {this._formJSX}
+                                  {this._submitButtonJSX}
+                                </div>;
+    }
 
     return(
       this._componentLayoutJSX
@@ -99,28 +126,37 @@ export default class Add extends Component{
   componentDidMount(){
 
     Rx.Observable.fromEvent(document.querySelector("#submit"), "click")
-      .debounceTime(500)
       .subscribe({
         next: (event) => {
-          var time = {
+          this._time = {
             start: new Date(),
             end: new Date(document.querySelector("#date").value+" "+document.querySelector("#time").value)
           };
-          var todo = {
+          this._todo = {
             title: document.querySelector("#title").value,
             desc: document.querySelector("#desc").value,
-            time,
+            time: this._time,
             status: "pending",
             tags: this._tagList
           };
-          this.props.addNewTodo(todo);
-          this.props.refreshTagListModifier();
-          this.props.updateTodoFilter("all");
+          if(this._todo.title===""||this._todo.desc===""){
+            event.preventDefault();
+            this.props.updateFormValidation("EMPTY_FIELDS");
+          }else if(this._todo.tags.length===0 && this._todo.tags){
+            event.preventDefault();
+            this.props.updateFormValidation("NO_TAGS");
+          }else if(this._time.start-this._time.end>=0 || isNaN(this._time.start-this._time.end)){
+            event.preventDefault();
+            this.props.updateFormValidation("INVALID_DATE");
+          }else{
+            this.props.addNewTodo(this._todo);
+            this.props.refreshTagListModifier();
+            this.props.updateTodoFilter("all");
+          }
         }
       });
 
     Rx.Observable.fromEvent(document.querySelector("#cancel"), "click")
-      .debounceTime(500)
       .subscribe({
         next: (event) => {
           this.props.refreshTagListModifier();
