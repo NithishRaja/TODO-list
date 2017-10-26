@@ -7,7 +7,7 @@ export default class Todo extends Component{
     super(props);
 
     this._panelHeadingJSX = <div className="panel-heading">
-                              {this.props.todo.title}<button className="btn btn-primary">expand/contract</button>
+                              {this.props.todo.title}<button className="btn btn-primary">{">"}</button>
                             </div>;
 
     this._panelBodyJSX = <div className="panel-body">

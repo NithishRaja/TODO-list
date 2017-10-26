@@ -158,7 +158,7 @@
 * **ended at 1914 on 25-10-2017**
 
 * **started at 2109 on 25-10-2017**
-* refactored if else sattement in **Add** component at 2125
+* refactored if else statement in **Add** component at 2125
 * starting to write epic to clear tagListModifierReducer at 2126
 * removed `Subscriber.js:242 Uncaught RangeError: Maximum call stack size exceeded` error at 2133
 * error was removed by clearing tagListModifier after every PUSH and POP
@@ -168,3 +168,11 @@
 * start writing epic to clear formValidationReducer after 3 sec at 2144
 * finished epic at 2149
 * **ended at 2150 on 25-10-2017**
+
+* **started at 0849 on 26-10-2017**
+* created stylesheet folder inside public directory at 0853
+* created style.css file inside stylesheet folder at 0854
+* copied css for tags from bootstrap at 0857
+* finished adding changes to styles at 1014
+* logic error: **Add** component throws error if navigated to it after few clicks on other buttons in navbar
+* **ended at 1015 on 26-10-2017**

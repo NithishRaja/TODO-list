@@ -68,8 +68,11 @@ export default class Add extends Component{
     this._tagsInputJSX = <div className="form-group">
                           <label htmlFor="tags">tags</label>
                           <div className="form-inline">
-                            {this._tagList.map((tag, index) => <div className="label label-warning" key={index}>
-                              {tag}<button className="btn btn-danger" id={`cancel-${tag}-${index}`}>x</button></div>)}
+                            <ul className="list-inline">
+                            {this._tagList.map((tag, index) => <li className="list-group-item list-group-item-warning" key={index}>
+                              {tag}
+                              <button className="badge btn btn-danger" id={`cancel-${tag}-${index}`}>x</button></li>)}
+                            </ul>
                             <input type="text" id="tags" className="form-control"/>
                             <button id="add-tag-button" className="btn btn-success">add tag</button>
                           </div>
