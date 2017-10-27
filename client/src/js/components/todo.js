@@ -37,7 +37,7 @@ export default class Todo extends Component{
                                   {this._panelFooterJSX}
                                 </div>;
 
-      this._componentLayoutJSX = this._panelContainerJSX;
+      this._miniTodoJSX = <div className="alert alert-success col-md-offset-2">{this.props.todo.title}</div>;
     }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)>0){
       this._panelContainerJSX = <div className="panel panel-warning col-md-offset-2">
                                   {this._panelHeadingJSX}
@@ -45,12 +45,18 @@ export default class Todo extends Component{
                                   {this._panelFooterJSX}
                                 </div>;
 
-      this._componentLayoutJSX = this._panelContainerJSX;
+      this._miniTodoJSX = <div className="alert alert-warning col-md-offset-2">{this.props.todo.title}</div>;
     }
 
   }
 
   render(){
+
+    if(this.props.expand){
+      this._componentLayoutJSX = this._panelContainerJSX;
+    }else{
+      this._componentLayoutJSX = this._miniTodoJSX;
+    }
 
     return(
       this._componentLayoutJSX
@@ -58,15 +64,18 @@ export default class Todo extends Component{
 
   }
 
-  componentDidMount(){
+  componentDidUpdate(){
 
-    Rx.Observable.fromEvent(document.querySelector(`#delete-${this.props.todo.id}`), "click")
-      .debounceTime(500)
-      .subscribe({
-        next: (event) => {
-          this.props.deleteSelectedTodo(this.props.todo.id);
-        }
-      });
+    if(this.props.expand){
+      Rx.Observable.fromEvent(document.querySelector(`#delete-${this.props.todo.id}`), "click")
+        .debounceTime(500)
+        .subscribe({
+          next: (event) => {
+            console.log("delete");
+            this.props.deleteSelectedTodo(this.props.todo.id);
+          }
+        });
+    }
 
   }
 

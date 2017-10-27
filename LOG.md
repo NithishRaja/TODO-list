@@ -187,4 +187,11 @@
 
 * **started at 1827 on 27-10-2017**
 * refactored deleteSelectedTodoEpic and newTodoEpic to modify todoReducer only via updateTodoEpic at 1842
-* 
+* added reducer for holding active TODO id at 1850
+* wrote action to update activeTodoReducer at 1900
+* **ended at 1912 on 27-10-2017**
+
+* **started at 1947 on 27-10-2017**
+* refactored toggle TODO button listener to listen to TODO according to todoFilter at 1951
+* added functionality tominimize todo at 2001
+* **ended at 2001 on 27-10-2017**
