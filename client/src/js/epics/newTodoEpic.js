@@ -9,6 +9,6 @@ export default function(action$){
     })
     .pluck("response")
     .map(response => {
-      return {type:"UPDATE_TODO", payload: response};
+      return {type:"START_TODO_UPDATE", payload: response};
     });
 }

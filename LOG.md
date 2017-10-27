@@ -184,3 +184,7 @@
 * added boilerplate for toggle button at 1008
 * added event listeners for toggle button at 1014
 * **ended at 1015 on 27-10-2017**
+
+* **started at 1827 on 27-10-2017**
+* refactored deleteSelectedTodoEpic and newTodoEpic to modify todoReducer only via updateTodoEpic at 1842
+* 
