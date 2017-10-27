@@ -179,4 +179,8 @@
 
 * **started at 0929 on 27-10-2017**
 * removed bug by using resetting tag instead of refreshing tag at 0939
-* 
+* started writing functionality to extend/compress TODO at 0942
+* removed extend button from **Todo** component at 0942
+* added boilerplate for toggle button at 1008
+* added event listeners for toggle button at 1014
+* **ended at 1015 on 27-10-2017**

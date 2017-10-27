@@ -7,7 +7,7 @@ export default class Todo extends Component{
     super(props);
 
     this._panelHeadingJSX = <div className="panel-heading">
-                              {this.props.todo.title}<button className="btn btn-primary">{">"}</button>
+                              {this.props.todo.title}
                             </div>;
 
     this._panelBodyJSX = <div className="panel-body">
@@ -19,7 +19,7 @@ export default class Todo extends Component{
                             <button id={`delete-${this.props.todo.id}`} className="btn btn-danger">{"delete"}</button>
                           </div>;
 
-    this._panelContainerJSX = <div className="panel panel-info">
+    this._panelContainerJSX = <div className="panel panel-info col-md-offset-2">
                                 {this._panelHeadingJSX}
                                 {this._panelBodyJSX}
                                 {this._panelFooterJSX}
@@ -31,7 +31,7 @@ export default class Todo extends Component{
   componentWillMount(){
 
     if(this.props.todo.status === "completed"){
-      this._panelContainerJSX = <div className="panel panel-success">
+      this._panelContainerJSX = <div className="panel panel-success col-md-offset-2">
                                   {this._panelHeadingJSX}
                                   {this._panelBodyJSX}
                                   {this._panelFooterJSX}
@@ -39,7 +39,7 @@ export default class Todo extends Component{
 
       this._componentLayoutJSX = this._panelContainerJSX;
     }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)>0){
-      this._panelContainerJSX = <div className="panel panel-warning">
+      this._panelContainerJSX = <div className="panel panel-warning col-md-offset-2">
                                   {this._panelHeadingJSX}
                                   {this._panelBodyJSX}
                                   {this._panelFooterJSX}
