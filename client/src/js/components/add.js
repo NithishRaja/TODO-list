@@ -153,7 +153,7 @@ export default class Add extends Component{
             this.props.updateFormValidation("INVALID_DATE");
           }else{
             this.props.addNewTodo(this._todo);
-            this.props.refreshTagListModifier();
+            this.props.resetTagListModifier();
             this.props.updateTodoFilter("all");
           }
         }
@@ -162,7 +162,7 @@ export default class Add extends Component{
     Rx.Observable.fromEvent(document.querySelector("#cancel"), "click")
       .subscribe({
         next: (event) => {
-          this.props.refreshTagListModifier();
+          this.props.resetTagListModifier();
           this.props.updateTodoFilter("all");
         }
       });

@@ -176,3 +176,7 @@
 * finished adding changes to styles at 1014
 * logic error: **Add** component throws error if navigated to it after few clicks on other buttons in navbar
 * **ended at 1015 on 26-10-2017**
+
+* **started at 0929 on 27-10-2017**
+* removed bug by using resetting tag instead of refreshing tag at 0939
+* 
