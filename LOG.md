@@ -212,3 +212,9 @@
 * added logout functionality at 1544
 * logout works by clearing isLoggedIn and user session variables
 * added loginCheck for `/api/todo` route at 1550
+* **ended at 1554 on 28-10-2017**
+
+* **started at 1855 on 28-10-2017**
+* set up client code to get todo from server at 1903
+* start writing code to add todo at 1903
+* 

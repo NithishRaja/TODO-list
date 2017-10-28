@@ -71,7 +71,6 @@ export default class Todo extends Component{
         .debounceTime(500)
         .subscribe({
           next: (event) => {
-            console.log("delete");
             this.props.deleteSelectedTodo(this.props.todo.id);
           }
         });

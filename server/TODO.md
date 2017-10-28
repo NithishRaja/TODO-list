@@ -1,6 +1,6 @@
 # TODO
 
 * write api routes
-* write code for navbar with logout button
+* use database to get TODO
 * add comments
 * update README.md

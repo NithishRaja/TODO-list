@@ -7,7 +7,7 @@ export default function(action$){
       if(action.payload){
         return Rx.Observable.of({response: action.payload});
       }else{
-        return Rx.Observable.ajax({url:"/api/todo.json", method:"GET", responseType:"json"});
+        return Rx.Observable.ajax({url:"/api/todo", method:"GET", responseType:"json"});
       }
     })
     .pluck("response")
