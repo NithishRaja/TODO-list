@@ -1,5 +1,5 @@
-var generatePassword = require("./generatePassword");
+var getTodo = require("./getTodo");
 
 module.exports = {
-  generatePasswords: generatePassword
+  getTodo: getTodo
 }

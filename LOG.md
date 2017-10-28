@@ -193,5 +193,22 @@
 
 * **started at 1947 on 27-10-2017**
 * refactored toggle TODO button listener to listen to TODO according to todoFilter at 1951
-* added functionality tominimize todo at 2001
+* added functionality to minimize todo at 2001
 * **ended at 2001 on 27-10-2017**
+
+* **started at 1405 on 28-10-2017**
+* start working on server side code at 1405
+* added route for `api/todo` at 1410
+* **ended at 1410 on 28-10-2017**
+
+* **started at 1454 on 28-10-2017**
+* start refactoring `api/todo` route into a middleware at 1455
+* refactored route into middleware at 1458
+* start writing navbar for logout option at 1501
+* finished navbar with logout option at 1539
+* clicking logout button sends a GET request to Server
+* start writing `/logout` route at 1540
+* finished `/logout` route at 1543
+* added logout functionality at 1544
+* logout works by clearing isLoggedIn and user session variables
+* 

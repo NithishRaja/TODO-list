@@ -1,11 +1,21 @@
 <%- contentFor('title') %>
-REACT APP
+TODO LIST
 
 <%- contentFor('body') %>
-<% console.log("here "+_locals); %>
-<div id="root"><%= _locals.email %></div>
-<button id="facebook-logout" class="">Log out</button>
-
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand">TODO LIST</div>
+      <div class="navbar-text"><%= _locals.email %></div>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="facebook-logout" href="/login">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id="root"></div>
 
 <!-- include stylesheet here -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
@@ -35,6 +45,23 @@ REACT APP
 <script>
   $("#facebook-logout").on("click", function(event){
     event.preventDefault();
-    FB.logout();
+    FB.getLoginStatus(function(response){
+      if(response.status==="conected"){
+        FB.logout();
+      }
+    });
+    $.ajax({
+      type: "GET",
+      url: "/logout",
+      xhrFields: {
+        withCredentials: true
+      },
+      success: function(data, textStatus){
+        console.log(data.redirect);
+        if(data.redirect){
+          window.location.href = data.redirect;
+        }
+      }
+    });
   });
 </script>

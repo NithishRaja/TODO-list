@@ -14,4 +14,11 @@ module.exports = function(app){
 
   app.route("/login/auth")
   .post(middleware.authenticate);
+
+  app.route("/logout")
+    .get(function(req, res){
+      req.session.isLoggedIn = false;
+      req.session.user = null;
+      res.status(200).json({"redirect": "/login"});
+    });
 };
