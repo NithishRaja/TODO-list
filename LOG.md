@@ -217,4 +217,6 @@
 * **started at 1855 on 28-10-2017**
 * set up client code to get todo from server at 1903
 * start writing code to add todo at 1903
+* wrote `/api/addTodo` route
+* wrote function to handle incoming POST request at `/api/addTodo` route at 2000
 * 

@@ -1,5 +1,7 @@
 var getTodo = require("./getTodo");
+var addTodo = require("./addTodo");
 
 module.exports = {
-  getTodo: getTodo
+  getTodo: getTodo,
+  addTodo: addTodo
 }

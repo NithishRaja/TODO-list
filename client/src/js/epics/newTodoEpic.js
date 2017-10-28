@@ -4,8 +4,15 @@ export default function(action$){
 
   return action$.ofType("ADD_NEW_TODO")
     .mergeMap(action => {
-      // replace GET with POST request
-      return Rx.Observable.ajax({url:"/api/todo", method:"GET", responseType:"json"});
+      console.log(action.payload.tags);
+      var body = {
+        title: action.payload.title,
+        desc: action.payload.desc,
+        status: action.payload.status,
+        tags: JSON.stringify(action.payload.tags),
+        time: JSON.stringify(action.payload.time)
+      };
+      return Rx.Observable.ajax({url:"/api/addTodo", method:"POST", responseType:"json", body});
     })
     .pluck("response")
     .map(response => {
