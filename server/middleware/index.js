@@ -23,7 +23,7 @@ exports.authenticate = function(req, res){
   req.session.isLoggedIn = true;
   req.session.user  = {
     email: req.body.email,
-    id: req.body.id
+    id: req.body.facebookId
   };
   res.status(200).json({"redirect" : "/"});
 };

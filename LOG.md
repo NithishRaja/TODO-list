@@ -211,4 +211,4 @@
 * finished `/logout` route at 1543
 * added logout functionality at 1544
 * logout works by clearing isLoggedIn and user session variables
-* 
+* added loginCheck for `/api/todo` route at 1550

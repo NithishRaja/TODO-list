@@ -42,7 +42,7 @@ LOGIN
         $.ajax({
           type: "POST",
           url: "/login/auth",
-          data: {email: response.email, id: response.id},
+          data: {email: response.email, facebookId: response.id},
           xhrFields: {
             withCredentials: true
           },
