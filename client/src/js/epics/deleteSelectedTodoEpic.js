@@ -4,8 +4,8 @@ export default function(action$){
 
   return action$.ofType("DELETE_SELECTED_TODO")
     .mergeMap(action => {
-      // replace GET request with POST request
-      return Rx.Observable.ajax({url:"api/getTodo", method:"GET", responseType:"json"});
+      console.log(action.payload);
+      return Rx.Observable.ajax({url:"api/deleteTodo", method:"POST", body:{id:action.payload}, responseType:"json"});
     })
     .pluck("response")
     .map(response => {

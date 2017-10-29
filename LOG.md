@@ -219,4 +219,11 @@
 * start writing code to add todo at 1903
 * wrote `/api/addTodo` route
 * wrote function to handle incoming POST request at `/api/addTodo` route at 2000
+* **ended at 2004 on 28-10-2017**
+
+* **started at 1720 on 29-10-2017**
+* start writing code for `api/deleteTodo` at 1722
+* finished `api/deleteTodo` route at 1729
+* start writing client code for deleting todo at 1729
+* finished client code for deleting todo at 1733
 * 
