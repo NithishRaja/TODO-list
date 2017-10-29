@@ -228,4 +228,9 @@
 * finished client code for deleting todo at 1733
 * added login validation for `/api/deleteTodo` at 1735
 * refactored `/api/deleteTodo` route into a middleware at 1738
+* **ended at 1739 on 29-10-2017**
+
+* **started at 1828 on 29-10-2017**
+* wrote code to set default values inside database
+* refactored `/api/getTodo` route to get todo from database at 1900
 * 

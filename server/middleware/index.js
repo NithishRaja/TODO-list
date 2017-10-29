@@ -23,9 +23,15 @@ exports.authenticate = function(req, res){
   req.session.isLoggedIn = true;
   req.session.user  = {
     email: req.body.email,
-    id: req.body.facebookId
+    facebookId: req.body.facebookId
   };
   res.status(200).json({"redirect" : "/"});
+};
+
+exports.logout = function(req, res){
+  req.session.isLoggedIn = false;
+  req.session.user = null;
+  res.status(200).json({"redirect": "/login"});
 };
 
 // exporting middleware for api routes
