@@ -226,4 +226,6 @@
 * finished `api/deleteTodo` route at 1729
 * start writing client code for deleting todo at 1729
 * finished client code for deleting todo at 1733
+* added login validation for `/api/deleteTodo` at 1735
+* refactored `/api/deleteTodo` route into a middleware at 1738
 * 

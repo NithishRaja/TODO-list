@@ -9,8 +9,5 @@ module.exports = function(app){
     .post(middleware.loginCheck, middleware.api.addTodo, middleware.api.getTodo);
 
   app.route("/api/deleteTodo")
-    .post(function(req, res, next){
-      console.log(req.body);
-      next();
-    }, middleware.api.getTodo);
+    .post(middleware.loginCheck, middleware.api.deleteTodo, middleware.api.getTodo);
 }
