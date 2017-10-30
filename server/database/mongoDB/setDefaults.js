@@ -49,12 +49,11 @@ module.exports = function(mongo){
   var options = {
     upsert: true,
     returnOriginal: false
-  }
+  };
 
   // if data doesn't exist update database
   collection.findOneAndUpdate(query, newDocument, options, function(err, res){
     console.log("default values set");
-    console.log(res);
   });
 
 }

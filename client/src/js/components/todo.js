@@ -26,6 +26,7 @@ export default class Todo extends Component{
                               </div>;
 
     this._componentLayoutJSX = this._panelContainerJSX;
+
   }
 
   componentWillMount(){
@@ -38,6 +39,8 @@ export default class Todo extends Component{
                                 </div>;
 
       this._miniTodoJSX = <div className="alert alert-success col-md-offset-2">{this.props.todo.title}</div>;
+
+
     }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)>0){
       this._panelContainerJSX = <div className="panel panel-warning col-md-offset-2">
                                   {this._panelHeadingJSX}
@@ -46,6 +49,14 @@ export default class Todo extends Component{
                                 </div>;
 
       this._miniTodoJSX = <div className="alert alert-warning col-md-offset-2">{this.props.todo.title}</div>;
+    }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)<0){
+      this._panelContainerJSX = <div className="panel panel-info col-md-offset-2">
+                                  {this._panelHeadingJSX}
+                                  {this._panelBodyJSX}
+                                  {this._panelFooterJSX}
+                                </div>;
+
+      this._miniTodoJSX = <div className="alert alert-info col-md-offset-2">{this.props.todo.title}</div>;
     }
 
   }

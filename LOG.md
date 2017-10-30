@@ -233,4 +233,17 @@
 * **started at 1828 on 29-10-2017**
 * wrote code to set default values inside database
 * refactored `/api/getTodo` route to get todo from database at 1900
-* 
+* **ended at 1900 on 29-10-2017**
+
+* **started at 1610 on 30-10-2017**
+* error thrown: `Uncaught Error: Todo.render(): A valid React element (or null) must be returned.
+  You may have returned undefined, an array or some other invalid object.` at 1612
+* error was thrown due to erroneous values present in database
+* resolved error by clearing database and using new database at 1620
+* finished code to add todo to database at 1659
+* error thrown: `Uncaught Error: Todo.render(): A valid React element (or null) must be returned.
+  You may have returned undefined, an array or some other invalid object.`
+* error was thrown because pending case was not covered in **Todo** component
+* wrote code for pending case in **Todo** component at 1714
+* code to add Todo works as expected at 1714
+* **ended at 1714 on 30-10-2017**
