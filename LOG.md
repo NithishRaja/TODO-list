@@ -249,4 +249,7 @@
 * **ended at 1714 on 30-10-2017**
 
 * **started at 1836 on 31-10-2017**
+* refactored `/api/addTodo` to return Todo directly instead of making another call to database at 1846
+* start writing functionality for deleting Todo at 1846
+* finished writing code to delete Todo from database at 1902
 * 
