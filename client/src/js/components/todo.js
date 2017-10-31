@@ -16,7 +16,10 @@ export default class Todo extends Component{
                         </div>;
 
     this._panelFooterJSX = <div className="panel-footer">
-                            <button id={`delete-${this.props.todo.id}`} className="btn btn-danger">{"delete"}</button>
+                            <ul className="list-inline">
+                              <li><button id={`complete-${this.props.todo.id}`} className="btn btn-success">{"completed"}</button></li>
+                              <li><button id={`delete-${this.props.todo.id}`} className="btn btn-danger">{"delete"}</button></li>
+                            </ul>
                           </div>;
 
     this._panelContainerJSX = <div className="panel panel-info col-md-offset-2">
@@ -32,6 +35,13 @@ export default class Todo extends Component{
   componentWillMount(){
 
     if(this.props.todo.status === "completed"){
+
+      this._panelFooterJSX = <div className="panel-footer">
+                              <ul className="list-inline">
+                                <li><button id={`delete-${this.props.todo.id}`} className="btn btn-danger">{"delete"}</button></li>
+                              </ul>
+                            </div>;
+
       this._panelContainerJSX = <div className="panel panel-success col-md-offset-2">
                                   {this._panelHeadingJSX}
                                   {this._panelBodyJSX}
@@ -85,6 +95,16 @@ export default class Todo extends Component{
             this.props.deleteSelectedTodo(this.props.todo.id);
           }
         });
+
+      if(this.props.todo.status!=="completed"){
+        Rx.Observable.fromEvent(document.querySelector(`#complete-${this.props.todo.id}`), "click")
+          .debounceTime(500)
+          .subscribe({
+            next: (event) => {
+              console.log(this.props.todo.id);
+            }
+          });
+      }
     }
 
   }

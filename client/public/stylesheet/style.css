@@ -12,8 +12,12 @@
   margin-left: 1%;
 }
 
-.panel-heading>.btn{
+/*.panel-heading>.btn{
   margin-left: 91.66666667%;
+}*/
+
+.panel-footer>ul{
+  margin-left: 75%;
 }
 
 .panel-body>p{
