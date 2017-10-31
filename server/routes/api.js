@@ -6,7 +6,7 @@ module.exports = function(app){
     .get(middleware.loginCheck, middleware.api.getTodo);
 
   app.route("/api/addTodo")
-    .post(middleware.loginCheck, middleware.api.addTodo, middleware.api.getTodo);
+    .post(middleware.loginCheck, middleware.api.addTodo);
 
   app.route("/api/deleteTodo")
     .post(middleware.loginCheck, middleware.api.deleteTodo, middleware.api.getTodo);

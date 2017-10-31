@@ -19,9 +19,7 @@ module.exports = function(req, res, next){
       returnOriginal: false
     };
     collection.findOneAndUpdate({ "facebookId": parseInt(req.session.user.facebookId) }, result, options, function(error, response){
-      console.log(response);
+      res.json(response.value.todo);
     });
   });
-
-  next();
 };

@@ -1,6 +1,5 @@
 # TODO
 
-* write api routes
-* use database to get TODO
+* update database upon deleting todo
 * add comments
 * update README.md

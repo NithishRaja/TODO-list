@@ -247,3 +247,6 @@
 * wrote code for pending case in **Todo** component at 1714
 * code to add Todo works as expected at 1714
 * **ended at 1714 on 30-10-2017**
+
+* **started at 1836 on 31-10-2017**
+* 
