@@ -18,8 +18,14 @@ module.exports = function(req, res, next){
       upsert: true,
       returnOriginal: false
     };
+    // updating todo list with with new todo
     collection.findOneAndUpdate({ "facebookId": parseInt(req.session.user.facebookId) }, result, options, function(error, response){
-      res.json(response.value.todo);
+      if(err===null){
+        // return Todo list to client
+        res.json(response.value.todo);
+      }else{
+        res.sendStatus(500);
+      }
     });
   });
 };
