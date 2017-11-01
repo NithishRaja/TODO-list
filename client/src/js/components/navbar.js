@@ -20,6 +20,7 @@ export default class Navbar extends Component{
 
   render(){
 
+    // highlight active button
     if(this.props.todoFilter === "all"){
       this._filterButtonJSX = <ul className="nav navbar-nav">
                                       <li className="active"><Link to="/" id="all">All</Link></li>
@@ -93,6 +94,7 @@ export default class Navbar extends Component{
 
   componentDidMount(){
 
+    // event listener for viewing all Todo
     Rx.Observable.fromEvent(document.querySelector("#all"), "click")
       .debounceTime(500)
       .subscribe({
@@ -102,6 +104,7 @@ export default class Navbar extends Component{
         }
       });
 
+    // event listener for viewing completed Todo
     Rx.Observable.fromEvent(document.querySelector("#completed"), "click")
       .debounceTime(500)
       .subscribe({
@@ -111,6 +114,7 @@ export default class Navbar extends Component{
         }
       });
 
+    // event listener for viewing pending Todo
     Rx.Observable.fromEvent(document.querySelector("#pending"), "click")
       .debounceTime(500)
       .subscribe({
@@ -120,6 +124,7 @@ export default class Navbar extends Component{
         }
       });
 
+    // event listener for viewing expired Todo
     Rx.Observable.fromEvent(document.querySelector("#expired"), "click")
       .debounceTime(500)
       .subscribe({
@@ -129,6 +134,7 @@ export default class Navbar extends Component{
         }
       });
 
+    // event listener for adding new Todo
     Rx.Observable.fromEvent(document.querySelector("#add"), "click")
       .debounceTime(500)
       .subscribe({

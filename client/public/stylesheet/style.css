@@ -4,7 +4,6 @@
 }
 
 .panel-heading{
-  font-weight: bold;
   font-size: 20px;
 }
 
@@ -12,9 +11,9 @@
   margin-left: 1%;
 }
 
-/*.panel-heading>.btn{
-  margin-left: 91.66666667%;
-}*/
+.panel-heading>.date{
+  margin-left: 75%;
+}
 
 .panel-footer>ul{
   margin-left: 75%;

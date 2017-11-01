@@ -19,6 +19,7 @@ export default class Main extends Component{
   }
 
   componentWillMount(){
+    // get Todo if no Todo is present
     if(this.props.todo===null){
       this.props.startTodoUpdate();
     }
@@ -26,6 +27,7 @@ export default class Main extends Component{
 
   render(){
 
+    // display Todo depending on the filter
     if(this.props.todoFilter==="pending" && this.props.todo!==null){
       this._todoListJSX = this.props.todo.filter(todo => {
                             return new Date() - new Date(todo.time.end) < 0;
@@ -73,6 +75,7 @@ export default class Main extends Component{
 
   componentDidUpdate(){
 
+    // filter currrently displayed Todo to add event listeners
     this.props.todo.filter((todo) => {
       if(this.props.todoFilter==="pending"){
         return new Date() - new Date(todo.time.end) < 0;
@@ -85,6 +88,7 @@ export default class Main extends Component{
       }
     })
     .forEach(todo => {
+      // event listener to expand Todo
       Rx.Observable.fromEvent(document.querySelector(`#toggle-${todo.id}`), "click")
         .subscribe({
           next: (event) => {

@@ -7,7 +7,8 @@ export default class Todo extends Component{
     super(props);
 
     this._panelHeadingJSX = <div className="panel-heading">
-                              {this.props.todo.title}
+                              <strong>{this.props.todo.title}</strong>
+                              <div className="date">{new Date(this.props.todo.time.start).toString()}</div>
                             </div>;
 
     this._panelBodyJSX = <div className="panel-body">
@@ -34,11 +35,12 @@ export default class Todo extends Component{
 
   componentWillMount(){
 
+    // setting Todo theme depending uponstatus of Todo
     if(this.props.todo.status === "completed"){
 
       this._panelFooterJSX = <div className="panel-footer">
                               <ul className="list-inline">
-                                <li><button id={`incomplete-${this.props.todo.id}`} className="btn btn-danger">{"incomplete"}</button></li>
+                                <li><button id={`incomplete-${this.props.todo.id}`} className="btn btn-warning">{"incomplete"}</button></li>
                                 <li><button id={`delete-${this.props.todo.id}`} className="btn btn-danger">{"delete"}</button></li>
                               </ul>
                             </div>;
@@ -49,8 +51,7 @@ export default class Todo extends Component{
                                   {this._panelFooterJSX}
                                 </div>;
 
-      this._miniTodoJSX = <div className="alert alert-success col-md-offset-2">{this.props.todo.title}</div>;
-
+      this._miniTodoJSX = <div className="alert alert-success col-md-offset-2"><strong>{this.props.todo.title}</strong></div>;
 
     }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)>0){
       this._panelContainerJSX = <div className="panel panel-warning col-md-offset-2">
@@ -59,7 +60,8 @@ export default class Todo extends Component{
                                   {this._panelFooterJSX}
                                 </div>;
 
-      this._miniTodoJSX = <div className="alert alert-warning col-md-offset-2">{this.props.todo.title}</div>;
+      this._miniTodoJSX = <div className="alert alert-warning col-md-offset-2"><strong>{this.props.todo.title}</strong></div>;
+
     }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)<0){
       this._panelContainerJSX = <div className="panel panel-info col-md-offset-2">
                                   {this._panelHeadingJSX}
@@ -67,7 +69,7 @@ export default class Todo extends Component{
                                   {this._panelFooterJSX}
                                 </div>;
 
-      this._miniTodoJSX = <div className="alert alert-info col-md-offset-2">{this.props.todo.title}</div>;
+      this._miniTodoJSX = <div className="alert alert-info col-md-offset-2"><strong>{this.props.todo.title}</strong></div>;
     }
 
   }
@@ -88,7 +90,9 @@ export default class Todo extends Component{
 
   componentDidUpdate(){
 
+    // adding event listeners depending upon the status of the Todo
     if(this.props.expand){
+      // event listener for deleting Todo
       Rx.Observable.fromEvent(document.querySelector(`#delete-${this.props.todo.id}`), "click")
         .debounceTime(500)
         .subscribe({
@@ -98,6 +102,7 @@ export default class Todo extends Component{
         });
 
       if(this.props.todo.status!=="completed"){
+        // event listener for marking todo as completed
         Rx.Observable.fromEvent(document.querySelector(`#complete-${this.props.todo.id}`), "click")
           .debounceTime(500)
           .subscribe({
@@ -106,6 +111,7 @@ export default class Todo extends Component{
             }
           });
       }else if(this.props.todo.status==="completed"){
+        // event listener for marking todo as incomplete
         Rx.Observable.fromEvent(document.querySelector(`#incomplete-${this.props.todo.id}`), "click")
           .debounceTime(500)
           .subscribe({

@@ -267,4 +267,7 @@
 * refactored `/api/updateTodo` route using a middleware at 1858
 * wrote functionality to update Todo status in database at 1909
 * start adding comments to server code at 1912
-* 
+* finished adding comments to server code at 1920
+* start adding comments to client code at 1920
+* finished adding comments to client code at 1947
+* **ended at 1953 on 01-11-2017**

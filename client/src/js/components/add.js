@@ -57,6 +57,7 @@ export default class Add extends Component{
 
   render(){
 
+    // update tagList to contain current tags
     if(this._tagList===null && this.props.tagListModifier.type==="NONE"){
       this._tagList = this.props.tagListModifier.payload;
     }else if(this.props.tagListModifier.type==="PUSH"){
@@ -65,6 +66,7 @@ export default class Add extends Component{
       this._tagList = this._tagList.filter(tag => this.props.tagListModifier.payload!==tag);
     }
 
+    // update markup to display current tags
     this._tagsInputJSX = <div className="form-group">
                           <label htmlFor="tags">tags</label>
                           <div className="form-inline">
@@ -78,6 +80,7 @@ export default class Add extends Component{
                           </div>
                         </div>;
 
+    // update form to include tagList
     this._formJSX = <div className="container">
                       {this._titleInputJSX}
                       {this._descInputJSX}
@@ -85,6 +88,7 @@ export default class Add extends Component{
                       {this._tagsInputJSX}
                     </div>;
 
+    // show appropriate form alert
     if(this.props.formValidation === "EMPTY_FIELDS"){
       this._componentLayoutJSX = <div>
                                   <Navbar />
@@ -128,20 +132,11 @@ export default class Add extends Component{
 
   componentDidMount(){
 
+    // event listener to listen to form submit
     Rx.Observable.fromEvent(document.querySelector("#submit"), "click")
       .subscribe({
         next: (event) => {
-          this._time = {
-            start: new Date(),
-            end: new Date(document.querySelector("#date").value+" "+document.querySelector("#time").value)
-          };
-          this._todo = {
-            title: document.querySelector("#title").value,
-            desc: document.querySelector("#desc").value,
-            time: this._time,
-            status: "pending",
-            tags: this._tagList
-          };
+          // deciding to alert user if input does not satisfy conditions or submit if conditions are satisfied
           if(this._todo.title===""||this._todo.desc===""){
             event.preventDefault();
             this.props.updateFormValidation("EMPTY_FIELDS");
@@ -152,6 +147,17 @@ export default class Add extends Component{
             event.preventDefault();
             this.props.updateFormValidation("INVALID_DATE");
           }else{
+            this._time = {
+              start: new Date(),
+              end: new Date(document.querySelector("#date").value+" "+document.querySelector("#time").value)
+            };
+            this._todo = {
+              title: document.querySelector("#title").value,
+              desc: document.querySelector("#desc").value,
+              time: this._time,
+              status: "pending",
+              tags: this._tagList
+            };
             this.props.addNewTodo(this._todo);
             this.props.resetTagListModifier();
             this.props.updateTodoFilter("all");
@@ -159,6 +165,7 @@ export default class Add extends Component{
         }
       });
 
+    // event listener to listen to cancel
     Rx.Observable.fromEvent(document.querySelector("#cancel"), "click")
       .subscribe({
         next: (event) => {
@@ -167,6 +174,7 @@ export default class Add extends Component{
         }
       });
 
+    // event listener to add tags
     Rx.Observable.fromEvent(document.querySelector("#add-tag-button"), "click")
       .debounceTime(500)
       .subscribe({
@@ -184,6 +192,7 @@ export default class Add extends Component{
   componentDidUpdate(){
 
     this._tagList.forEach((tag, index) => {
+      // event listener to remove tags
       Rx.Observable.fromEvent(document.querySelector(`#cancel-${tag}-${index}`), "click")
         .debounceTime(500)
         .subscribe({

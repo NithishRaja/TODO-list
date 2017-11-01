@@ -1,6 +1,7 @@
 # TODO
 
-* write code for complete button in todo
+* write functionality which removes blank space from tags
+* add code to display time in todo
 * make navbar a side nav
 * refine styles
 * update README.md
