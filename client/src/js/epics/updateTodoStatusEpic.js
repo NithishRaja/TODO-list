@@ -4,7 +4,6 @@ export default function(action$){
 
   return action$.ofType("START_TODO_STATUS_UPDATE")
     .mergeMap(action => {
-      console.log(action);
       return Rx.Observable.ajax({url:"/api/updateTodo", method:"POST", responseType:"json", body: action.payload });
     })
     .pluck("response")

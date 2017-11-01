@@ -263,4 +263,6 @@
 
 * **started at 1850 on 01-11-2017**
 * wrote `/api/updateTodo` route at 1853
+* connected client sidde with `/api/updateTodo` route at 1855
+* refactored `/api/updateTodo` route using a middleware at 1858
 * 

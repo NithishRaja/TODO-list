@@ -12,8 +12,5 @@ module.exports = function(app){
     .post(middleware.loginCheck, middleware.api.deleteTodo, middleware.api.getTodo);
 
   app.route("/api/updateTodo")
-    .post(middleware.loginCheck, function(req, res, next){
-      console.log(req.body);
-      next();
-    }, middleware.api.getTodo);
+    .post(middleware.loginCheck, middleware.api.updateTodo, middleware.api.getTodo);
 }
