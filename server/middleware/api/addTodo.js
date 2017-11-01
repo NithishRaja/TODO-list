@@ -12,7 +12,7 @@ module.exports = function(req, res, next){
 
   var collection = mongo.DB.collection("USER");
   // getting todo from database
-  collection.findOne({ "facebookId": parseInt(req.session.user.facebookId) }, {}, function(err, result){
+  collection.findOne({ "facebookId": parseInt(req.session.user.facebookId, 10) }, {}, function(err, result){
     result.todo.push(newTodo);
     var options = {
       upsert: true,

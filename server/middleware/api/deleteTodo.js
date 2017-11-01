@@ -2,11 +2,11 @@ var mongo = require("mongodb");
 
 module.exports = function(req, res, next){
   var collection = mongo.DB.collection("USER");
-  collection.findOne({ "facebookId": parseInt(req.session.user.facebookId) }, {}, function(err, result){
+  collection.findOne({ "facebookId": parseInt(req.session.user.facebookId, 10) }, {}, function(err, result){
     // console.log(result);
     var newTodoList = [];
     result.todo.filter(function(todo){
-      return todo.id!==parseInt(req.body.id);
+      return todo.id!==parseInt(req.body.id, 10);
     }).map(function(todo){
       newTodoList.push(todo);
     });
@@ -19,5 +19,4 @@ module.exports = function(req, res, next){
       res.json(response.todo);
     });
   });
-  next();
 };

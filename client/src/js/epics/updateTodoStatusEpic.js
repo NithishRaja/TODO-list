@@ -8,7 +8,6 @@ export default function(action$){
     })
     .pluck("response")
     .map(response => {
-      console.log(response);
       return {type:"START_TODO_UPDATE", payload: response};
     });
 }
