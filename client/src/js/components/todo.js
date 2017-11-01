@@ -38,6 +38,7 @@ export default class Todo extends Component{
 
       this._panelFooterJSX = <div className="panel-footer">
                               <ul className="list-inline">
+                                <li><button id={`incomplete-${this.props.todo.id}`} className="btn btn-danger">{"incomplete"}</button></li>
                                 <li><button id={`delete-${this.props.todo.id}`} className="btn btn-danger">{"delete"}</button></li>
                               </ul>
                             </div>;
@@ -101,7 +102,15 @@ export default class Todo extends Component{
           .debounceTime(500)
           .subscribe({
             next: (event) => {
-              console.log(this.props.todo.id);
+              this.props.startTodoStatusUpdate({ id:this.props.todo.id, status:"completed" });
+            }
+          });
+      }else if(this.props.todo.status==="completed"){
+        Rx.Observable.fromEvent(document.querySelector(`#incomplete-${this.props.todo.id}`), "click")
+          .debounceTime(500)
+          .subscribe({
+            next: (event) => {
+              this.props.startTodoStatusUpdate({ id:this.props.todo.id, status:"pending" });
             }
           });
       }

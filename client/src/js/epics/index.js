@@ -4,13 +4,15 @@ import deleteSelectedTodoEpic from "./deleteSelectedTodoEpic";
 import newTodoEpic from "./newTodoEpic";
 import resetTagListModifierEpic from "./resetTagListModifierEpic";
 import resetFormValidationEpic from "./resetFormValidationEpic";
+import updateTodoStatusEpic from "./updateTodoStatusEpic";
 
 const allEpics = combineEpics(
   updateTodoEpic,
   newTodoEpic,
   deleteSelectedTodoEpic,
   resetTagListModifierEpic,
-  resetFormValidationEpic
+  resetFormValidationEpic,
+  updateTodoStatusEpic
 );
 
 const epicMiddleware = createEpicMiddleware(

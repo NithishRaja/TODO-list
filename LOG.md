@@ -252,4 +252,15 @@
 * refactored `/api/addTodo` to return Todo directly instead of making another call to database at 1846
 * start writing functionality for deleting Todo at 1846
 * finished writing code to delete Todo from database at 1902
+* finished writing boilerplate in client side for complete Todo button inside **Todo** component at 1918
+* wrote code for mark as incomplete button in **Todo** component at 1922
+* start writing updateTodoStatus action at 1923
+* finished action at 1924
+* wrote epic for updating todo status at 1932
+* connected action to event listener at 1934
+* start writing route in server side for `/api/updateTodo` at 1935
+* **ended at 1939 on 31-10-2017**
+
+* **started at 1850 on 01-11-2017**
+* wrote `/api/updateTodo` route at 1853
 * 

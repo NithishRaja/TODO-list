@@ -5,6 +5,7 @@ import startTodoUpdate from "./../actions/startTodoUpdate";
 import updateTodoFilter from "./../actions/updateTodoFilter";
 import deleteSelectedTodo from "./../actions/deleteSelectedTodo";
 import updateActiveTodo from "./../actions/updateActiveTodo";
+import startTodoStatusUpdate from "./../actions/startTodoStatusUpdate";
 
 const mapStateToProps = (state) => {
   return {
@@ -15,7 +16,7 @@ const mapStateToProps = (state) => {
 };
 
 const matchDispatchToProps = (dispatch) => {
-  return bindActionCreators({startTodoUpdate, updateTodoFilter, deleteSelectedTodo, updateActiveTodo}, dispatch);
+  return bindActionCreators({startTodoUpdate, updateTodoFilter, deleteSelectedTodo, updateActiveTodo, startTodoStatusUpdate}, dispatch);
 };
 
 export default connect(mapStateToProps, matchDispatchToProps)(Main);

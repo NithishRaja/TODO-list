@@ -31,27 +31,31 @@ export default class Main extends Component{
                             return new Date() - new Date(todo.time.end) < 0;
                           })
                           .map((todo) => <div key={todo.id}><button id={`toggle-${todo.id}`} className="btn btn-primary col-md-1">{this.props.activeTodo===todo.id?<span className="badge">^</span>:<span className="badge">></span>}</button>
-                            <Todo expand={this.props.activeTodo===todo.id} deleteSelectedTodo={this.props.deleteSelectedTodo}
-                            updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
+                            <Todo expand={this.props.activeTodo===todo.id} startTodoStatusUpdate={this.props.startTodoStatusUpdate}
+                             deleteSelectedTodo={this.props.deleteSelectedTodo}
+                             updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
 
     }else if(this.props.todoFilter==="completed" && this.props.todo!==null){
       this._todoListJSX = this.props.todo.filter(todo => {
                                   return todo.status === "completed";
                                 })
                                 .map((todo) => <div key={todo.id}><button id={`toggle-${todo.id}`} className="btn btn-primary col-md-1">{this.props.activeTodo===todo.id?<span className="badge">^</span>:<span className="badge">></span>}</button>
-                                  <Todo expand={this.props.activeTodo===todo.id} deleteSelectedTodo={this.props.deleteSelectedTodo}
-                                  updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
+                                  <Todo expand={this.props.activeTodo===todo.id} startTodoStatusUpdate={this.props.startTodoStatusUpdate}
+                                   deleteSelectedTodo={this.props.deleteSelectedTodo}
+                                   updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
     }else if(this.props.todoFilter==="expired" && this.props.todo!=null){
       this._todoListJSX = this.props.todo.filter(todo => {
                                   return new Date() - new Date(todo.time.end) > 0 && todo.status==="pending";
                                 })
                                 .map((todo) => <div key={todo.id}><button id={`toggle-${todo.id}`} className="btn btn-primary col-md-1">{this.props.activeTodo===todo.id?<span className="badge">^</span>:<span className="badge">></span>}</button>
-                                  <Todo expand={this.props.activeTodo===todo.id} deleteSelectedTodo={this.props.deleteSelectedTodo}
-                                  updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
+                                  <Todo expand={this.props.activeTodo===todo.id} startTodoStatusUpdate={this.props.startTodoStatusUpdate}
+                                   deleteSelectedTodo={this.props.deleteSelectedTodo}
+                                   updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
     }else if(this.props.todoFilter==="all" && this.props.todo!==null){
       this._todoListJSX = this.props.todo.map((todo) => <div key={todo.id}><button id={`toggle-${todo.id}`} className="btn btn-primary col-md-1">{this.props.activeTodo===todo.id?<span className="badge">^</span>:<span className="badge">></span>}</button>
-                                            <Todo expand={this.props.activeTodo===todo.id} deleteSelectedTodo={this.props.deleteSelectedTodo}
-                                            updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
+                                            <Todo expand={this.props.activeTodo===todo.id} startTodoStatusUpdate={this.props.startTodoStatusUpdate}
+                                             deleteSelectedTodo={this.props.deleteSelectedTodo}
+                                             updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
     }
     if(this._todoListJSX){
       this._componentLayoutJSX = <div>
