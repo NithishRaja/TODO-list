@@ -1,38 +1,17 @@
 var path = require("path");
+
 var apiMiddleware = require("./api");
+var renderHome = require("./renderHome");
+var loginCheck = require("./loginCheck");
+var renderLogin = require("./renderLogin");
+var authenticate = require("./authenticate");
+var logout = require("./logout");
 
-exports.renderHome = function(req, res){
-  res.locals = { "email": req.session.user.email };
-  res.render("home");
-};
-
-exports.loginCheck = function(req, res, next){
-  if(req.session.isLoggedIn === true){
-    next();
-  }else{
-    req.session.isLoggedIn = false;
-    res.redirect(303, "/login");
-  }
-};
-
-exports.renderLogin = function(req, res){
-  res.render("login");
-};
-
-exports.authenticate = function(req, res){
-  req.session.isLoggedIn = true;
-  req.session.user  = {
-    email: req.body.email,
-    facebookId: req.body.facebookId
-  };
-  res.status(200).json({"redirect" : "/"});
-};
-
-exports.logout = function(req, res){
-  req.session.isLoggedIn = false;
-  req.session.user = null;
-  res.status(200).json({"redirect": "/login"});
-};
-
-// exporting middleware for api routes
-exports.api = apiMiddleware;
+module.exports = {
+  api: apiMiddleware,
+  renderHome: renderHome,
+  loginCheck: loginCheck,
+  renderLogin: renderLogin,
+  authenticate: authenticate,
+  logout: logout
+}
