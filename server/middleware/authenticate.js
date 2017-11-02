@@ -1,9 +1,9 @@
 
-module.exports = function(req, res){
+module.exports = function(req, res, next){
   req.session.isLoggedIn = true;
   req.session.user  = {
     email: req.body.email,
     facebookId: req.body.facebookId
   };
-  res.status(200).json({"redirect" : "/"});
+  next();
 };

@@ -28,8 +28,8 @@ export default class Todo extends Component{
 
     this._panelHeadingJSX = <div className="panel-heading">
                               <ul className="list-inline">
-                                <li className="title col-md-4"><strong>{this.props.todo.title}</strong></li>
-                                <li className="col-md-offset-4">{`${this._dayList[this._date.getDay()]} ${this._date.getDate()} ${this._monthList[this._date.getMonth()]} ${this._date.getFullYear()}`}</li>
+                                <li className="title col-md-5"><strong>{this.props.todo.title}</strong></li>
+                                <li className="col-md-offset-3">{`${this._dayList[this._date.getDay()]} ${this._date.getDate()} ${this._monthList[this._date.getMonth()]} ${this._date.getFullYear()}`}</li>
                               </ul>
                             </div>;
 
@@ -93,7 +93,7 @@ export default class Todo extends Component{
 
       this._miniTodoJSX = <div className="alert alert-warning col-md-offset-2"><strong>{this.props.todo.title}</strong></div>;
 
-    }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)<0){
+    }else if(this.props.todo.status === "pending" && new Date() - new Date(this.props.todo.time.end)<=0){
       this._panelFooterJSX = <div className="panel-footer">
                               <div className="col-md-4"><strong>{`time left: ${this._timeLeftDays} days ${this._timeLeftHrs} hours ${this._timeLeftMin} minutes`}</strong></div>
                               <ul className="list-inline col-md-offset-9">

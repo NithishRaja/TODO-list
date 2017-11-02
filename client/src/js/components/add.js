@@ -136,6 +136,17 @@ export default class Add extends Component{
     Rx.Observable.fromEvent(document.querySelector("#submit"), "click")
       .subscribe({
         next: (event) => {
+          this._time = {
+            start: new Date(),
+            end: new Date(document.querySelector("#date").value+" "+document.querySelector("#time").value)
+          };
+          this._todo = {
+            title: document.querySelector("#title").value,
+            desc: document.querySelector("#desc").value,
+            time: this._time,
+            status: "pending",
+            tags: this._tagList
+          };
           // deciding to alert user if input does not satisfy conditions or submit if conditions are satisfied
           if(this._todo.title===""||this._todo.desc===""){
             event.preventDefault();
@@ -147,17 +158,6 @@ export default class Add extends Component{
             event.preventDefault();
             this.props.updateFormValidation("INVALID_DATE");
           }else{
-            this._time = {
-              start: new Date(),
-              end: new Date(document.querySelector("#date").value+" "+document.querySelector("#time").value)
-            };
-            this._todo = {
-              title: document.querySelector("#title").value,
-              desc: document.querySelector("#desc").value,
-              time: this._time,
-              status: "pending",
-              tags: this._tagList
-            };
             this.props.addNewTodo(this._todo);
             this.props.resetTagListModifier();
             this.props.updateTodoFilter("all");

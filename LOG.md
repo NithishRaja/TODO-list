@@ -284,4 +284,7 @@
 * finished adding functionality for filtering tag names at 1653
 * wrote code to handle no Todo situation at 1718
 * refactored normal route middleware into separate files at 1727
+* wrote boilerplate for checkAccount middleware at 1730
+* wrote code to update database if new account is created at 1802
+* added comments to authenticate middleware at 1812
 * 

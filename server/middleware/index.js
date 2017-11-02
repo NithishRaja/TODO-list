@@ -6,6 +6,7 @@ var loginCheck = require("./loginCheck");
 var renderLogin = require("./renderLogin");
 var authenticate = require("./authenticate");
 var logout = require("./logout");
+var checkAccount = require("./checkAccount");
 
 module.exports = {
   api: apiMiddleware,
@@ -13,5 +14,6 @@ module.exports = {
   loginCheck: loginCheck,
   renderLogin: renderLogin,
   authenticate: authenticate,
-  logout: logout
+  logout: logout,
+  checkAccount: checkAccount
 }

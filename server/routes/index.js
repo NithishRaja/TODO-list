@@ -13,7 +13,7 @@ module.exports = function(app){
     .get(middleware.renderLogin);
 
   app.route("/login/auth")
-  .post(middleware.authenticate);
+  .post(middleware.authenticate, middleware.checkAccount);
 
   app.route("/logout")
     .get(middleware.logout);
