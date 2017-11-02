@@ -1,0 +1,28 @@
+
+.label{
+  margin: .2em .6em .3em;
+}
+
+.panel-heading{
+  font-size: 20px;
+}
+
+.btn{
+  margin-left: 1%;
+}
+
+.panel-body>p{
+  text-align: justify;
+  text-indent: 1%;
+  margin-top: 2%;
+  font-size: 20px;
+}
+
+.panel-footer>.btn{
+  margin-left: 91.66666667%;
+}
+
+.form-inline>.label>button{
+  line-height: 1;
+  padding: 0 0;
+}

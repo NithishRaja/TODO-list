@@ -2,7 +2,7 @@
 module.exports = function(mongo){
   var collection = mongo.DB.collection("USER");
 
-  var query = {};
+  var query = { "facebookId": 1227836443988677 };
 
   var newDocument = {
     $setOnInsert: {
