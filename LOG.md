@@ -282,4 +282,5 @@
 * **started at 1649 on 02-11-2017**
 * start writing code to format todo input at 1649
 * finished adding functionality for filtering tag names at 1653
+* wrote code to handle no Todo situation at 1718
 * 

@@ -10,6 +10,8 @@ export default class Main extends Component{
 
     this._previousActiveTodo = null;
 
+    this._noTodoAlertJSX = <div className="alert alert-info" role="alert">{"no Todo to display. Add a Todo to get started"}</div>;
+
     this._componentLayoutJSX = <div>
                                 <Navbar />
                                 <div className="container">
@@ -59,11 +61,18 @@ export default class Main extends Component{
                                              deleteSelectedTodo={this.props.deleteSelectedTodo}
                                              updateTodoFilter={this.props.updateTodoFilter} todo={todo} /></div>);
     }
-    if(this._todoListJSX){
+    if(this._todoListJSX && this.props.todo.length!==0){
       this._componentLayoutJSX = <div>
                                   <Navbar />
                                   <div className="container">
                                     {this._todoListJSX}
+                                  </div>
+                                </div>;
+    }else if(this._todoListJSX && this.props.todo.length===0){
+      this._componentLayoutJSX = <div>
+                                  <Navbar />
+                                  <div className="container">
+                                    {this._noTodoAlertJSX}
                                   </div>
                                 </div>;
     }
