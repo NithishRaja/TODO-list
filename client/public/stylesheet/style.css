@@ -11,18 +11,6 @@
   margin-left: 1%;
 }
 
-.panel-heading>ul>.title{
-  font-weight: bold;
-}
-
-.panel-heading>ul>.date{
-  margin-left: 66.66666667%;
-}
-
-/*.panel-footer>ul{
-  margin-left: 75%;
-}*/
-
 .panel-body>p{
   text-align: justify;
   text-indent: 1%;

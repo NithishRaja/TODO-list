@@ -28,7 +28,7 @@ export default class Todo extends Component{
 
     this._panelHeadingJSX = <div className="panel-heading">
                               <ul className="list-inline">
-                                <li className="title col-md-4">{this.props.todo.title}</li>
+                                <li className="title col-md-4"><strong>{this.props.todo.title}</strong></li>
                                 <li className="col-md-offset-4">{`${this._dayList[this._date.getDay()]} ${this._date.getDate()} ${this._monthList[this._date.getMonth()]} ${this._date.getFullYear()}`}</li>
                               </ul>
                             </div>;

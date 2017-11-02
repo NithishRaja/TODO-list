@@ -278,3 +278,8 @@
 * start writing code to display time left at 1031
 * finished writing code to display time left at 1056
 * **ended at 1056 on 02-11-2017**
+
+* **started at 1649 on 02-11-2017**
+* start writing code to format todo input at 1649
+* finished adding functionality for filtering tag names at 1653
+* 

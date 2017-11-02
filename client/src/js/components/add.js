@@ -187,6 +187,15 @@ export default class Add extends Component{
         }
       });
 
+    Rx.Observable.fromEvent(document.querySelector("#tags"), "keydown")
+      .subscribe({
+        next: (event) => {
+          if(!RegExp(/^[a-zA-Z0-9-]*$/).test(event.key)){
+            event.preventDefault();
+          }
+        }
+      });
+
   }
 
   componentDidUpdate(){
