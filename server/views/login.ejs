@@ -2,15 +2,24 @@
 LOGIN
 
 <%- contentFor("body") %>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    LOGIN
+<div class="login-panel panel panel-default col-md-offset-4 col-md-4">
+  <div class="login-panel-heading panel-heading">
+    <strong>LOGIN</strong>
   </div>
   <div class="panel-body">
-    <button id="facebook-login" class="btn btn-primary">Login with facebook</button>
+    <button id="facebook-login" class="col-md-offset-4 btn btn-primary btn-lg">facebook</button>
   </div>
 </div>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
+<style>
+  .login-panel{
+    margin-top: 100px;
+  }
+  .login-panel-heading{
+    text-align: center;
+  }
+</style>
 <!-- async importing of facebook's javascript CDN -->
 <script>
   window.fbAsyncInit = function() {
@@ -57,5 +66,3 @@ LOGIN
     }, {scope: 'email'});
   });
 </script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
