@@ -271,3 +271,10 @@
 * start adding comments to client code at 1920
 * finished adding comments to client code at 1947
 * **ended at 1953 on 01-11-2017**
+
+* **started at 0950 on 02-11-2017**
+* start writing code to display start date in **Todo** component at 0950
+* finished writing code and styles for displaying start time at 1030
+* start writing code to display time left at 1031
+* finished writing code to display time left at 1056
+* **ended at 1056 on 02-11-2017**
