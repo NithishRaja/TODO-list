@@ -291,4 +291,6 @@
 
 * **started at 1525 on 17-11-2017**
 * use `node-redis-session` to save session to redis database at 1525
-* 
+* switch to client side
+* run `npm install` at 1528
+* **ended at 1548 on 17-11-2017**
