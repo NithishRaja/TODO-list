@@ -288,3 +288,7 @@
 * wrote code to update database if new account is created at 1802
 * added comments to authenticate middleware at 1812
 * **ended at 1813 on 02-11-2017**
+
+* **started at 1525 on 17-11-2017**
+* use `node-redis-session` to save session to redis database at 1525
+* 

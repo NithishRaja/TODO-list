@@ -40,7 +40,6 @@ if(exports.main === module){
   // listening to port
   app.listen(app.get("port"), function(err){
     if(err) return console.log(err);
-    console.log("Server is running on port %d, press Ctrl+C to close", app.get("port"));
   });
 }else{
   // export module
